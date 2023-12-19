@@ -2,11 +2,12 @@ import { CheckIcon } from "@heroicons/react/20/solid";
 
 const tiers = [
   {
-    name: "Freelancer",
+    name: "Разовый",
     id: "tier-freelancer",
     href: "#",
-    priceMonthly: "$24",
-    description: "The essentials to provide your best work for clients.",
+    priceMonthly: "от 400₽",
+    description:
+      "Подходит если вы планируете изредка посещать наш клуб для улучшения навыков.",
     features: [
       "5 products",
       "Up to 1,000 subscribers",
@@ -16,11 +17,12 @@ const tiers = [
     mostPopular: false,
   },
   {
-    name: "Startup",
+    name: "Месячный",
     id: "tier-startup",
     href: "#",
-    priceMonthly: "$32",
-    description: "A plan that scales with your rapidly growing business.",
+    priceMonthly: "от 250₽",
+    description:
+      "Пользуется наибольшей популярностью у начинающих спортсменов и спортсменов со средним опытом",
     features: [
       "25 products",
       "Up to 10,000 subscribers",
@@ -31,11 +33,12 @@ const tiers = [
     mostPopular: true,
   },
   {
-    name: "Enterprise",
+    name: "Годовой",
     id: "tier-enterprise",
     href: "#",
-    priceMonthly: "$48",
-    description: "Dedicated support and infrastructure for your company.",
+    priceMonthly: "от 200₽",
+    description:
+      "Идеально подходит для постоянных клиентов, регулярно посещающих наш клуб.",
     features: [
       "Unlimited products",
       "Unlimited subscribers",
@@ -53,19 +56,21 @@ function classNames(...classes) {
 
 export default function Pricing() {
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <div className="bg-white py-4 sm:py-6">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-base font-semibold leading-7 text-indigo-600">
-            Pricing
+            Тарифные планы
           </h2>
           <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-            Pricing plans for teams of&nbsp;all&nbsp;sizes
+            Ваша Победа – Наш Приоритет!
           </p>
         </div>
         <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">
-          Distinctio et nulla eum soluta et neque labore quibusdam. Saepe et
-          quasi iusto modi velit ut non voluptas in. Explicabo id ut laborum.
+          Присоединяйтесь к Club-Ugra, где ваша победа становится доступной и
+          реальной целью, а каждый тренировочный момент стоит своей цены. Потому
+          что в борьбе за успех у нас адекватные цены – ваш путь к вершине
+          становится ещё ближе.
         </p>
         <div className="isolate mx-auto mt-16 grid max-w-md grid-cols-1 gap-y-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {tiers.map((tier, tierIdx) => (
@@ -91,7 +96,7 @@ export default function Pricing() {
                   </h3>
                   {tier.mostPopular ? (
                     <p className="rounded-full bg-indigo-600/10 px-2.5 py-1 text-xs font-semibold leading-5 text-indigo-600">
-                      Most popular
+                      Популярный
                     </p>
                   ) : null}
                 </div>
@@ -103,7 +108,7 @@ export default function Pricing() {
                     {tier.priceMonthly}
                   </span>
                   <span className="text-sm font-semibold leading-6 text-gray-600">
-                    /month
+                    /за тренировку
                   </span>
                 </p>
                 <ul
