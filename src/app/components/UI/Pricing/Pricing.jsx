@@ -7,12 +7,12 @@ const tiers = [
     href: "#",
     priceMonthly: "от 400₽",
     description:
-      "Подходит если вы планируете изредка посещать наш клуб для улучшения навыков.",
+      "Вы планируете изредка посещать клуб или попробовать новое направление.",
     features: [
-      "5 products",
-      "Up to 1,000 subscribers",
-      "Basic analytics",
-      "48-hour support response time",
+      "Одно посещение любой тренировки",
+      "Доступ во все зоны клуба",
+      "Ознакомление с оборудованием",
+      "Консультация тренера",
     ],
     mostPopular: false,
   },
@@ -22,13 +22,13 @@ const tiers = [
     href: "#",
     priceMonthly: "от 250₽",
     description:
-      "Пользуется наибольшей популярностью у начинающих спортсменов и спортсменов со средним опытом",
+      "Пользуется наибольшей популярностью у начинающих спортсменов и спортсменов со средним уровнем подготовки",
     features: [
-      "25 products",
-      "Up to 10,000 subscribers",
-      "Advanced analytics",
-      "24-hour support response time",
-      "Marketing automations",
+      "Посещение 8ми тренировок",
+      "Доступ во все зоны клуба",
+      "Индивидуальные консультации",
+      "Доступ к спортивным мероприятиям",
+      "Ежемесячные конкурсы",
     ],
     mostPopular: true,
   },
@@ -40,11 +40,15 @@ const tiers = [
     description:
       "Идеально подходит для постоянных клиентов, регулярно посещающих наш клуб.",
     features: [
-      "Unlimited products",
-      "Unlimited subscribers",
-      "Advanced analytics",
-      "1-hour, dedicated support response time",
-      "Marketing automations",
+      "Безлимитное посещение тренировок",
+      "2 индивидуальных занятия в месяц",
+      "Доступ во все зоны клуба",
+      "Доступ к спортивным мероприятиям",
+      "Ежемесячные конкурсы",
+      "Комплексный анализ физической формы",
+      "Дополнительные тренировки вне графика",
+      "Возможность заморозки абонемента",
+      "Подарки от спонсоров Club-Ugra",
     ],
     mostPopular: false,
   },
@@ -67,10 +71,12 @@ export default function Pricing() {
           </p>
         </div>
         <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">
-          Присоединяйтесь к Club-Ugra, где ваша победа становится доступной и
-          реальной целью, а каждый тренировочный момент стоит своей цены. Потому
-          что в борьбе за успех у нас адекватные цены – ваш путь к вершине
-          становится ещё ближе.
+          Присоединяйтесь к Club-Ugra, где ваша победа не просто цель, а
+          настоящее произведение искусства. Каждый момент тренировки становится
+          ценным шагом на пути к успеху, а разумные цены делают этот путь ещё
+          более захватывающим и достижимым. Погрузитесь в атмосферу, где каждый
+          шаг наполнен креативностью и красотой вашего собственного
+          преображения.
         </p>
         <div className="isolate mx-auto mt-16 grid max-w-md grid-cols-1 gap-y-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {tiers.map((tier, tierIdx) => (
@@ -131,12 +137,12 @@ export default function Pricing() {
                 aria-describedby={tier.id}
                 className={classNames(
                   tier.mostPopular
-                    ? "bg-indigo-600 text-white shadow-sm hover:bg-indigo-500"
+                    ? "bg-indigo-600 text-white shadow-sm hover:bg-indigo-700"
                     : "text-indigo-600 ring-1 ring-inset ring-indigo-200 hover:ring-indigo-300",
                   "mt-8 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 )}
               >
-                Buy plan
+                Записаться сейчас
               </a>
             </div>
           ))}
