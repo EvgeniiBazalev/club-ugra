@@ -21,7 +21,10 @@ const CarouselMain = () => {
               </p>
             </div>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Button size="lg" className="bg-indigo-600">
+              <Button
+                size="lg"
+                className="bg-indigo-600 enabled:hover:bg-indigo-700"
+              >
                 Записаться
               </Button>
               <Button
@@ -47,13 +50,16 @@ const CarouselMain = () => {
                 Партнеры и спонсоры:
               </p>
               <div className="mt-3 flex max-w-md items-center">
-                <Image
-                  className="mr-4 h-10 w-auto md:h-12"
-                  src="partners/cda.svg"
-                  alt=""
-                  width={100}
-                  height={100}
-                />
+                <a href="https://creative-da.ru" target="_blank">
+                  <Image
+                    className="mr-4 h-10 w-auto md:h-12"
+                    src="partners/cda.svg"
+                    alt=""
+                    width={100}
+                    height={100}
+                  />
+                </a>
+
                 {/* <Image
                   className="mr-8 h-8 w-auto md:h-12"
                   src="/carusel/8.jpg"
