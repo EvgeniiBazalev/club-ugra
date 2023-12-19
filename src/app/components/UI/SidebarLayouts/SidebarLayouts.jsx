@@ -12,6 +12,7 @@ import {
   UsersIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
+import Image from "next/image";
 
 const navigation = [
   { name: "Главная", href: "#", icon: HomeIcon, current: true },
@@ -91,11 +92,13 @@ export default function SidebarLayouts({ children }) {
                   </Transition.Child>
                   {/* Sidebar component, swap this element with another sidebar if you like */}
                   <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-indigo-600 px-6 pb-2">
-                    <div className="flex h-16 shrink-0 items-center">
-                      <img
-                        className="h-8 w-auto"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=white"
+                    <div className="flex h-44 ml-auto mr-auto shrink-0 items-center">
+                      <Image
+                        className="h-44 w-auto mt-5"
+                        src="main/logo.svg"
                         alt="Your Company"
+                        width={500}
+                        height={500}
                       />
                     </div>
                     <nav className="flex flex-1 flex-col">
@@ -166,11 +169,13 @@ export default function SidebarLayouts({ children }) {
         <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-indigo-600 px-6">
-            <div className="flex h-16 shrink-0 items-center">
-              <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=white"
+            <div className="flex ml-auto mr-auto h-44 shrink-0 items-center">
+              <Image
+                className="h-44 w-auto mt-5"
+                src="main/logo.svg"
                 alt="Your Company"
+                width={500}
+                height={500}
               />
             </div>
             <nav className="flex flex-1 flex-col">
@@ -253,14 +258,14 @@ export default function SidebarLayouts({ children }) {
             className="-m-2.5 p-2.5 text-indigo-200 lg:hidden"
             onClick={() => setSidebarOpen(true)}
           >
-            <span className="sr-only">Open sidebar</span>
+            <span className="sr-only">Открыть меню</span>
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
           <div className="flex-1 text-sm font-semibold leading-6 text-white">
-            Dashboard
+            Главная
           </div>
           <a href="#">
-            <span className="sr-only">Your profile</span>
+            <span className="sr-only">Профиль</span>
             <img
               className="h-8 w-8 rounded-full bg-indigo-700"
               src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"

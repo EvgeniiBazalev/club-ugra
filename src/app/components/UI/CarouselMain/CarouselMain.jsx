@@ -1,4 +1,5 @@
 import { Button, Carousel } from "flowbite-react";
+import Image from "next/image";
 
 const CarouselMain = () => {
   return (
@@ -8,12 +9,15 @@ const CarouselMain = () => {
           <div className="lg:max-w-xl xl:shrink-0">
             <div>
               <h2 className="text-3xl font-extrabold leading-none tracking-tight text-gray-900 dark:text-white sm:text-5xl">
-                Making earth cooler for people, nature, climate
+                КЛУБ ЕДИНОБОРСТВ ЮГРА
               </h2>
-              <p className="mt-5 text-base font-normal text-gray-500 dark:text-gray-400 sm:text-xl md:max-w-3xl">
-                Protecting the planet and its natural resources for future
-                generations, by reducing pollution, promoting sustainability,
-                and conserving energy and resources.
+              <p className="mt-5 text-justify font-normal text-gray-500 dark:text-gray-400 sm:text-xl md:max-w-3xl">
+                Тренировки по тайскому боксу и кикбоксингу! Пробная тренировка
+                бесплатно! Дети с 5 лет и старше, занятия для взрослых, группы
+                для девушек. Специализированный зал. Дружеская атмосфера.
+                Квалифицированные тренеры! Воспитанники Чемпионы Мира и Европы,
+                победители международных турниров! Лучший зал единоборств в
+                Сургуте! Хочешь тренироваться с лучшими, приходи к нам!
               </p>
             </div>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -41,49 +45,65 @@ const CarouselMain = () => {
                 Partners and backers:
               </p>
               <div className="mt-3 flex max-w-md items-center">
-                <img
+                <Image
                   className="mr-4 h-8 w-auto md:h-12"
-                  src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/customers/greenpeace.svg"
+                  src="/carusel/7.jpg"
                   alt=""
+                  width={100}
+                  height={100}
                 />
-                <img
+                <Image
                   className="mr-8 h-8 w-auto md:h-12"
-                  src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/customers/united-nations.svg"
+                  src="/carusel/8.jpg"
                   alt=""
+                  width={100}
+                  height={100}
                 />
-                <img
+                <Image
                   className="mr-8 h-8 w-auto dark:invert md:h-12"
-                  src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/customers/wwf.svg"
+                  src="/carusel/9.jpg"
                   alt=""
+                  width={100}
+                  height={100}
                 />
-                <img
+                <Image
                   className="h-8 w-auto md:h-12"
-                  src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/customers/oxfam.svg"
+                  src="/carusel/10.jpg"
                   alt=""
+                  width={100}
+                  height={100}
                 />
               </div>
             </div>
           </div>
           <Carousel className="h-64 md:h-96">
-            <img
-              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/ngo-carousel/image-1.jpg"
+            <Image
+              src="/carusel/7.jpg"
               className="rounded-lg"
               alt=""
+              width={1920}
+              height={1080}
             />
-            <img
-              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/ngo-carousel/image-2.jpg"
+            <Image
+              src="/carusel/8.jpg"
               className="rounded-lg"
               alt=""
+              width={1920}
+              height={1080}
             />
-            <img
-              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/ngo-carousel/image-3.jpg"
+            <Image
+              src="/carusel/9.jpg"
               className="rounded-lg"
               alt=""
+              width={1920}
+              height={1080}
             />
-            <img
-              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/ngo-carousel/image-4.jpg"
+            <Image
+              src="/carusel/10.jpg"
               className="rounded-lg"
               alt=""
+              width={1920}
+              height={1080}
             />
           </Carousel>
         </div>
