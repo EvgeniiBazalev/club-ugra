@@ -21,7 +21,9 @@ const CarouselMain = () => {
               </p>
             </div>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Button size="lg">Donate now</Button>
+              <Button size="lg" className="bg-indigo-600">
+                Записаться
+              </Button>
               <Button
                 size="lg"
                 color="gray"
@@ -37,22 +39,22 @@ const CarouselMain = () => {
                 >
                   <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />
                 </svg>
-                Learn more
+                Узнать больше
               </Button>
             </div>
             <div className="mt-4 dark:border-gray-700 sm:mt-8 sm:border-t sm:border-gray-100 sm:pt-8">
-              <p className="hidden text-base font-medium text-gray-500 sm:block">
-                Partners and backers:
+              <p className="text-base font-medium text-gray-500 sm:block">
+                Партнеры и спонсоры:
               </p>
               <div className="mt-3 flex max-w-md items-center">
                 <Image
-                  className="mr-4 h-8 w-auto md:h-12"
-                  src="/carusel/7.jpg"
+                  className="mr-4 h-10 w-auto md:h-12"
+                  src="partners/cda.svg"
                   alt=""
                   width={100}
                   height={100}
                 />
-                <Image
+                {/* <Image
                   className="mr-8 h-8 w-auto md:h-12"
                   src="/carusel/8.jpg"
                   alt=""
@@ -72,7 +74,7 @@ const CarouselMain = () => {
                   alt=""
                   width={100}
                   height={100}
-                />
+                /> */}
               </div>
             </div>
           </div>
