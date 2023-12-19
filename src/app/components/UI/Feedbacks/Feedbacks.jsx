@@ -1,25 +1,43 @@
 import { StarIcon } from "@heroicons/react/20/solid";
+import Image from "next/image";
 
 const reviews = {
-  average: 4,
-  totalCount: 1624,
+  average: 5,
+  totalCount: 28,
   counts: [
-    { rating: 5, count: 1019 },
-    { rating: 4, count: 162 },
-    { rating: 3, count: 97 },
-    { rating: 2, count: 199 },
-    { rating: 1, count: 147 },
+    { rating: 5, count: 28 },
+    { rating: 4, count: 0 },
+    { rating: 3, count: 0 },
+    { rating: 2, count: 0 },
+    { rating: 1, count: 0 },
   ],
   featured: [
     {
       id: 1,
       rating: 5,
       content: `
-        <p>This is the bag of my dreams. I took it on my last vacation and was able to fit an absurd amount of snacks for the many long and hungry flights.</p>
+        <p>Здесь просто волшебное место для занятий единоборствами! Тренеры – настоящие профессионалы своего дела, всегда готовые помочь и поддержать. Здесь царит дружественная атмосфера, и каждый тренировочный процесс – настоящее приключение.</p>
       `,
-      author: "Emily Selman",
-      avatarSrc:
-        "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80",
+      author: "Татьяна Петрова",
+      avatarSrc: "/feedbacks/1.jpg",
+    },
+    {
+      id: 2,
+      rating: 5,
+      content: `
+        <p>Клуб Югра – это место, где каждый может найти свой путь в мире единоборств. Я уже несколько лет занимаюсь здесь, и могу с уверенностью сказать, что это лучшее место для тренировок в Сургуте. Здесь действительно ценится каждый участник, независимо от уровня подготовки. Я горжусь тем, что являюсь частью этого клуба!</p>
+      `,
+      author: "Карина Ветрова",
+      avatarSrc: "/feedbacks/2.jpg",
+    },
+    {
+      id: 3,
+      rating: 5,
+      content: `
+        <p>Занимаюсь в Клубе Югра уже несколько месяцев, и впечатления только положительные. Профессиональные тренеры, разнообразные тренировки, отличное оборудование. Здесь каждый день как новое приключение, и я по-настоящему нахожусь в своей тарелке. Рекомендую всем любителям единоборств!</p>
+      `,
+      author: "Влад Слепцов",
+      avatarSrc: "/feedbacks/3.jpg",
     },
     // More reviews...
   ],
@@ -35,7 +53,7 @@ export default function Feedbacks() {
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:grid lg:max-w-7xl lg:grid-cols-12 lg:gap-x-8 lg:px-8 lg:py-32">
         <div className="lg:col-span-4">
           <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-            Customer Reviews
+            Отзывы клиентов в 2gis
           </h2>
 
           <div className="mt-3 flex items-center">
@@ -57,12 +75,12 @@ export default function Feedbacks() {
               <p className="sr-only">{reviews.average} out of 5 stars</p>
             </div>
             <p className="ml-2 text-sm text-gray-900">
-              Based on {reviews.totalCount} reviews
+              Рейтинг на основе {reviews.totalCount} оценок
             </p>
           </div>
 
           <div className="mt-6">
-            <h3 className="sr-only">Review data</h3>
+            <h3 className="sr-only">Данные отзывов</h3>
 
             <dl className="space-y-3">
               {reviews.counts.map((count) => (
@@ -70,7 +88,7 @@ export default function Feedbacks() {
                   <dt className="flex flex-1 items-center">
                     <p className="w-3 font-medium text-gray-900">
                       {count.rating}
-                      <span className="sr-only"> star reviews</span>
+                      <span className="sr-only"> Звезд</span>
                     </p>
                     <div
                       aria-hidden="true"
@@ -107,18 +125,19 @@ export default function Feedbacks() {
 
           <div className="mt-10">
             <h3 className="text-lg font-medium text-gray-900">
-              Share your thoughts
+              Оставь свой отзыв
             </h3>
             <p className="mt-1 text-sm text-gray-600">
-              If you’ve used this product, share your thoughts with other
-              customers
+              Если вы посещали наш клуб, то пожалуйста, оставьте отзыв для тех,
+              кто только планирует присоединиться к нам
             </p>
 
             <a
-              href="#"
+              href="https://2gis.ru/surgut/firm/70000001026493444/tab/reviews"
               className="mt-6 inline-flex w-full items-center justify-center rounded-md border border-gray-300 bg-white px-8 py-2 text-sm font-medium text-gray-900 hover:bg-gray-50 sm:w-auto lg:w-full"
+              target="_blank"
             >
-              Write a review
+              Оставить отзыв
             </a>
           </div>
         </div>
@@ -131,10 +150,12 @@ export default function Feedbacks() {
               {reviews.featured.map((review) => (
                 <div key={review.id} className="py-12">
                   <div className="flex items-center">
-                    <img
+                    <Image
                       src={review.avatarSrc}
                       alt={`${review.author}.`}
                       className="h-12 w-12 rounded-full"
+                      width={120}
+                      height={120}
                     />
                     <div className="ml-4">
                       <h4 className="text-sm font-bold text-gray-900">
