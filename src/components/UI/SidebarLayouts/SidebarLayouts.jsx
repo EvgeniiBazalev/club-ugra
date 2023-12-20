@@ -11,6 +11,7 @@ import {
   HomeIcon,
   UsersIcon,
   XMarkIcon,
+  BookOpenIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 
@@ -21,6 +22,7 @@ const navigation = [
   { name: "Расписание", href: "#", icon: CalendarIcon, current: false },
   { name: "Документы", href: "#", icon: DocumentDuplicateIcon, current: false },
   { name: "Новости и акции", href: "#", icon: ChartPieIcon, current: false },
+  { name: "О клубе", href: "#", icon: BookOpenIcon, current: false },
 ];
 const teams = [
   { id: 1, name: "Доска почета", href: "#", initial: "Д", current: false },
