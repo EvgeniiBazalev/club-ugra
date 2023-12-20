@@ -7,7 +7,7 @@ const FooterMain = () => {
         <Footer.Brand
           alt="Logo"
           href="#"
-          name="Региональная общественная организация ХМАО-Югры КЛУБ ЕДИНОБОРСТВ ЮГРА"
+          name="КЛУБ ЕДИНОБОРСТВ ЮГРА"
           src="main/logo3.ico"
         />
         <p className="my-6 text-gray-500 dark:text-gray-400">
@@ -28,7 +28,7 @@ const FooterMain = () => {
           </Footer.Link>
         </Footer.LinkGroup>
         <Footer.Copyright
-          by="Клуб Югра™. Все права защищены."
+          by="Региональная Общественная организация ХМАО-Югры Клуб Единоборств Югра™. Все права защищены."
           href="#"
           year={2023}
         />
