@@ -16,13 +16,13 @@ import {
 import Image from "next/image";
 
 const navigation = [
-  { name: "Главная", href: "#", icon: HomeIcon, current: true },
+  { name: "Главная", href: "/", icon: HomeIcon, current: true },
   { name: "Тренерский состав", href: "#", icon: UsersIcon, current: false },
   { name: "Оснащение", href: "#", icon: FolderIcon, current: false },
   { name: "Расписание", href: "#", icon: CalendarIcon, current: false },
   { name: "Документы", href: "#", icon: DocumentDuplicateIcon, current: false },
   { name: "Новости и акции", href: "#", icon: ChartPieIcon, current: false },
-  { name: "О клубе", href: "#", icon: BookOpenIcon, current: false },
+  { name: "О клубе", href: "/about", icon: BookOpenIcon, current: false },
 ];
 const teams = [
   { id: 1, name: "Доска почета", href: "#", initial: "Д", current: false },
