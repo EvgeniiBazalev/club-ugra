@@ -1,33 +1,33 @@
 export const values = [
   {
-    name: "Be world-class",
+    name: "Индивидуальный подход к тренировкам",
     description:
-      "Aut illo quae. Ut et harum ea animi natus. Culpa maiores et sed sint et magnam exercitationem quia. Ullam voluptas nihil vitae dicta molestiae et. Aliquid velit porro vero.",
+      "Мы уделяем особое внимание развитию ваших навыков в тайском боксе и кикбоксинге, предлагая индивидуальный подход, соответствующий вашему уровню подготовки. Наши персонализированные программы помогут вам достичь оптимальных результатов.",
   },
   {
-    name: "Share everything you know",
+    name: "Техническая мастерство",
     description:
-      "Mollitia delectus a omnis. Quae velit aliquid. Qui nulla maxime adipisci illo id molestiae. Cumque cum ut minus rerum architecto magnam consequatur. Quia quaerat minima.",
+      "Освоение основ правильного выполнения техник в тайском боксе и кикбоксинге станет ключевым моментом наших тренировок. Мы предоставляем систематическое и пошаговое обучение, чтобы вы могли достичь высшего технического мастерства.",
   },
   {
-    name: "Always learning",
+    name: "Кардиотренировка и выносливость",
     description:
-      "Aut repellendus et officiis dolor possimus. Deserunt velit quasi sunt fuga error labore quia ipsum. Commodi autem voluptatem nam. Quos voluptatem totam.",
+      "Наши тренировки фокусируются на повышении вашей выносливости через кардиотренировки. Мы предлагаем эффективные методы улучшения работы сердечно-сосудистой системы, поддерживая вашу физическую форму на высшем уровне.",
   },
   {
-    name: "Be supportive",
+    name: "Спарринг и практика",
     description:
-      "Magnam provident veritatis odit. Vitae eligendi repellat non. Eum fugit impedit veritatis ducimus. Non qui aspernatur laudantium modi. Praesentium rerum error deserunt harum.",
+      "Развивайте боевые навыки через регулярные бои и тренировочные поединки, создавая безопасную и стимулирующую среду для практики. Наши тренеры обеспечивают поддержку и руководство, чтобы вы могли применять изученные техники в реальных боевых условиях.",
   },
   {
-    name: "Take responsibility",
+    name: "Психологическая устойчивость",
     description:
-      "Sit minus expedita quam in ullam molestiae dignissimos in harum. Tenetur dolorem iure. Non nesciunt dolorem veniam necessitatibus laboriosam voluptas perspiciatis error.",
+      "Мы придаем большое значение тренировке устойчивости к стрессу и концентрации в условиях боя. Внедрение методов ментальной подготовки помогает повысить вашу психологическую устойчивость, делая вас готовыми к любым вызовам во время тренировок и соревнований.",
   },
   {
-    name: "Enjoy downtime",
+    name: "Физическая форма и восстановление",
     description:
-      "Ipsa in earum deserunt aut. Quos minus aut animi et soluta. Ipsum dicta ut quia eius. Possimus reprehenderit iste aspernatur ut est velit consequatur distinctio.",
+      "Наш клуб поддерживает ваше здоровье и обеспечивает восстановление после тренировок. Мы обосновываем важность правильного питания и сна в процессе тренировок, а также внедряем методы реабилитации для поддержания оптимальной физической формы.",
   },
 ];
 
