@@ -19,7 +19,7 @@ import Link from "next/link";
 const navigation = [
   { name: "Главная", href: "/", icon: HomeIcon, current: true },
   { name: "Тренерский состав", href: "/team", icon: UsersIcon, current: false },
-  { name: "Оснащение", href: "#", icon: FolderIcon, current: false },
+  { name: "Оснащение", href: "/equipment", icon: FolderIcon, current: false },
   { name: "Расписание", href: "#", icon: CalendarIcon, current: false },
   { name: "Документы", href: "#", icon: DocumentDuplicateIcon, current: false },
   { name: "Новости и акции", href: "#", icon: ChartPieIcon, current: false },
@@ -177,7 +177,7 @@ export default function SidebarLayouts({ children }) {
         {/* Static sidebar for desktop */}
         <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
           {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-stone-50 px-6">
+          <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6">
             <div className="flex ml-auto mr-auto h-44 shrink-0 items-center">
               <Image
                 className="h-44 w-auto mt-5"
