@@ -26,7 +26,13 @@ const navigation = [
   { name: "О клубе", href: "/about", icon: BookOpenIcon, current: false },
 ];
 const teams = [
-  { id: 1, name: "Доска почета", href: "#", initial: "Д", current: false },
+  {
+    id: 1,
+    name: "Доска почета",
+    href: "/chempions",
+    initial: "Д",
+    current: false,
+  },
   { id: 2, name: "Записаться", href: "#", initial: "З", current: false },
   { id: 3, name: "Контакты", href: "#", initial: "К", current: false },
 ];
@@ -171,7 +177,7 @@ export default function SidebarLayouts({ children }) {
         {/* Static sidebar for desktop */}
         <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
           {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-indigo-600 px-6">
+          <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-stone-50 px-6">
             <div className="flex ml-auto mr-auto h-44 shrink-0 items-center">
               <Image
                 className="h-44 w-auto mt-5"
@@ -192,7 +198,7 @@ export default function SidebarLayouts({ children }) {
                           className={classNames(
                             item.current
                               ? "bg-indigo-700 text-white"
-                              : "text-indigo-200 hover:text-white hover:bg-indigo-700",
+                              : "text-indigo-700 hover:text-white hover:bg-indigo-700",
                             "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
                           )}
                         >
@@ -200,7 +206,7 @@ export default function SidebarLayouts({ children }) {
                             className={classNames(
                               item.current
                                 ? "text-white"
-                                : "text-indigo-200 group-hover:text-white",
+                                : "text-indigo-700 group-hover:text-white",
                               "h-6 w-6 shrink-0"
                             )}
                             aria-hidden="true"
@@ -212,18 +218,18 @@ export default function SidebarLayouts({ children }) {
                   </ul>
                 </li>
                 <li>
-                  <div className="text-xs font-semibold leading-6 text-indigo-200">
+                  <div className="text-xs font-semibold leading-6 text-indigo-700">
                     Информация
                   </div>
                   <ul role="list" className="-mx-2 mt-2 space-y-1">
                     {teams.map((team) => (
                       <li key={team.name}>
-                        <a
+                        <Link
                           href={team.href}
                           className={classNames(
                             team.current
                               ? "bg-indigo-700 text-white"
-                              : "text-indigo-200 hover:text-white hover:bg-indigo-700",
+                              : "text-indigo-700 hover:text-white hover:bg-indigo-700",
                             "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
                           )}
                         >
@@ -231,7 +237,7 @@ export default function SidebarLayouts({ children }) {
                             {team.initial}
                           </span>
                           <span className="truncate">{team.name}</span>
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
