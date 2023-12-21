@@ -14,10 +14,11 @@ import {
   BookOpenIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
+import Link from "next/link";
 
 const navigation = [
   { name: "Главная", href: "/", icon: HomeIcon, current: true },
-  { name: "Тренерский состав", href: "#", icon: UsersIcon, current: false },
+  { name: "Тренерский состав", href: "/team", icon: UsersIcon, current: false },
   { name: "Оснащение", href: "#", icon: FolderIcon, current: false },
   { name: "Расписание", href: "#", icon: CalendarIcon, current: false },
   { name: "Документы", href: "#", icon: DocumentDuplicateIcon, current: false },
@@ -186,7 +187,7 @@ export default function SidebarLayouts({ children }) {
                   <ul role="list" className="-mx-2 space-y-1">
                     {navigation.map((item) => (
                       <li key={item.name}>
-                        <a
+                        <Link
                           href={item.href}
                           className={classNames(
                             item.current
@@ -205,7 +206,7 @@ export default function SidebarLayouts({ children }) {
                             aria-hidden="true"
                           />
                           {item.name}
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
