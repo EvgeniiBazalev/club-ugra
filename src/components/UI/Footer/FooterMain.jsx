@@ -7,7 +7,7 @@ const FooterMain = () => {
         <Footer.Brand
           alt="Logo"
           href="#"
-          name="КЛУБ ЕДИНОБОРСТВ ЮГРА"
+          name="КЛУБ ЮГРА"
           src="main/logo3.ico"
         />
         <p className="my-6 text-gray-500 dark:text-gray-400">

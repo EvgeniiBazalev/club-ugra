@@ -1,7 +1,7 @@
-import React from "react";
+import EquipmentAll from "@/components/PagesComponents/Equipment/EquipmentAll";
 
 const page = () => {
-  return <div>page</div>;
+  return <EquipmentAll />;
 };
 
 export default page;
