@@ -20,7 +20,7 @@ const navigation = [
   { name: "Главная", href: "/", icon: HomeIcon, current: true },
   { name: "Тренерский состав", href: "/team", icon: UsersIcon, current: false },
   { name: "Оснащение", href: "/equipment", icon: FolderIcon, current: false },
-  { name: "Расписание", href: "#", icon: CalendarIcon, current: false },
+  { name: "Расписание", href: "/schedule", icon: CalendarIcon, current: false },
   { name: "Документы", href: "#", icon: DocumentDuplicateIcon, current: false },
   { name: "Новости и акции", href: "#", icon: ChartPieIcon, current: false },
   { name: "О клубе", href: "/about", icon: BookOpenIcon, current: false },
