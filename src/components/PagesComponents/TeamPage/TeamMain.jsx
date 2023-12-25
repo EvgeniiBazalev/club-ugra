@@ -1,4 +1,4 @@
-import { people } from "./team";
+import { team } from "./team";
 import Image from "next/image";
 
 const TeamMain = () => {
@@ -23,7 +23,7 @@ const TeamMain = () => {
           role="list"
           className="-mt-12 space-y-12 divide-y divide-gray-200 xl:col-span-3"
         >
-          {people.map((person) => (
+          {team.map((person) => (
             <li
               key={person.name}
               className="flex flex-col gap-10 pt-12 sm:flex-row"

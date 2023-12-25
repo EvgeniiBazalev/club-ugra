@@ -2,8 +2,13 @@
 
 import { Tabs, Badge, Timeline } from "flowbite-react";
 import getCurrentWeekDays from "@/support/getCurrentWeekDays";
+import scheduleTraining from "./scheduleTraining";
+import getTrainerInfo from "./getTrainerInfo";
+import { team } from "../TeamPage/team";
+import Image from "next/image";
 
 const Schedule = () => {
+  let i = 1;
   const currentWeekDays = getCurrentWeekDays();
   return (
     <section className="bg-white dark:bg-gray-900 antialiased">
@@ -41,354 +46,7 @@ const Schedule = () => {
                 <Tabs.Item active title={day.date} key={day.id}>
                   <Timeline className="border-0">
                     <div className="grid max-w-5xl grid-cols-1 p-5 mx-auto border border-gray-100 rounded-lg bg-gray-50 sm:grid-cols-2 dark:bg-gray-800 dark:border-gray-700">
-                      <Timeline.Item className="ml-0 space-y-3 mb-0 md:border-r md:border-b border-gray-200 dark:border-gray-700 py-5">
-                        <Timeline.Point />
-                        <Timeline.Content>
-                          <Timeline.Time>
-                            <Badge className="w-fit">
-                              <svg
-                                aria-hidden="true"
-                                className="w-3 h-3 mr-1"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                                  clipRule="evenodd"
-                                />
-                              </svg>
-                              9:00 - 10:00
-                            </Badge>
-                          </Timeline.Time>
-
-                          <Timeline.Title>
-                            <a href="#" className="hover:underline">
-                              Opening remarks
-                            </a>
-                          </Timeline.Title>
-                          <div className="flex items-center gap-3">
-                            <img
-                              className="object-cover w-12 h-12 rounded-full shrink-0"
-                              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
-                              alt=""
-                            />
-                            <div>
-                              <p className="text-lg font-medium leading-tight text-gray-900 dark:text-white">
-                                Jese Leos
-                              </p>
-                              <p className="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                CEO &amp; Co Founder Bergside LLC
-                              </p>
-                            </div>
-                          </div>
-                        </Timeline.Content>
-                      </Timeline.Item>
-                      <Timeline.Item className="ml-0 space-y-3 mb-0 md:pl-5 md:border-b border-gray-200 dark:border-gray-700 py-5">
-                        <Timeline.Point />
-                        <Timeline.Content>
-                          <Timeline.Time>
-                            <Badge className="w-fit">
-                              <svg
-                                aria-hidden="true"
-                                className="w-3 h-3 mr-1"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                                  clipRule="evenodd"
-                                />
-                              </svg>
-                              10:00 - 11:00
-                            </Badge>
-                          </Timeline.Time>
-                          <Timeline.Title>
-                            <a href="#" className="hover:underline">
-                              Women in Streaming Media Networking
-                            </a>
-                          </Timeline.Title>
-                          <div className="flex items-center gap-3">
-                            <img
-                              className="object-cover w-12 h-12 rounded-full shrink-0"
-                              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/leslie-livingston.png"
-                              alt=""
-                            />
-                            <div>
-                              <p className="text-lg font-medium leading-tight text-gray-900 dark:text-white">
-                                Leslie Livingston
-                              </p>
-                              <p className="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                CEO &amp; Co Founder Meta
-                              </p>
-                            </div>
-                          </div>
-                        </Timeline.Content>
-                      </Timeline.Item>
-                      <Timeline.Item className="ml-0 space-y-3 mb-0 md:border-r md:border-b border-gray-200 dark:border-gray-700 py-5">
-                        <Timeline.Point />
-                        <Timeline.Content>
-                          <Timeline.Time>
-                            <Badge className="w-fit">
-                              <svg
-                                aria-hidden="true"
-                                className="w-3 h-3 mr-1"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                                  clipRule="evenodd"
-                                />
-                              </svg>
-                              9:00 - 10:00
-                            </Badge>
-                          </Timeline.Time>
-
-                          <Timeline.Title>
-                            <a href="#" className="hover:underline">
-                              Opening remarks
-                            </a>
-                          </Timeline.Title>
-                          <div className="flex items-center gap-3">
-                            <img
-                              className="object-cover w-12 h-12 rounded-full shrink-0"
-                              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
-                              alt=""
-                            />
-                            <div>
-                              <p className="text-lg font-medium leading-tight text-gray-900 dark:text-white">
-                                Jese Leos
-                              </p>
-                              <p className="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                CEO &amp; Co Founder Bergside LLC
-                              </p>
-                            </div>
-                          </div>
-                        </Timeline.Content>
-                      </Timeline.Item>
-                      <Timeline.Item className="ml-0 space-y-3 mb-0 md:pl-5 md:border-b border-gray-200 dark:border-gray-700 py-5">
-                        <Timeline.Point />
-                        <Timeline.Content>
-                          <Timeline.Time>
-                            <Badge className="w-fit">
-                              <svg
-                                aria-hidden="true"
-                                className="w-3 h-3 mr-1"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                                  clipRule="evenodd"
-                                />
-                              </svg>
-                              10:00 - 11:00
-                            </Badge>
-                          </Timeline.Time>
-                          <Timeline.Title>
-                            <a href="#" className="hover:underline">
-                              Women in Streaming Media Networking
-                            </a>
-                          </Timeline.Title>
-                          <div className="flex items-center gap-3">
-                            <img
-                              className="object-cover w-12 h-12 rounded-full shrink-0"
-                              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/leslie-livingston.png"
-                              alt=""
-                            />
-                            <div>
-                              <p className="text-lg font-medium leading-tight text-gray-900 dark:text-white">
-                                Leslie Livingston
-                              </p>
-                              <p className="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                CEO &amp; Co Founder Meta
-                              </p>
-                            </div>
-                          </div>
-                        </Timeline.Content>
-                      </Timeline.Item>
-                      <Timeline.Item className="ml-0 space-y-3 mb-0 md:border-r md:border-b border-gray-200 dark:border-gray-700 py-5">
-                        <Timeline.Point />
-                        <Timeline.Content>
-                          <Timeline.Time>
-                            <Badge className="w-fit">
-                              <svg
-                                aria-hidden="true"
-                                className="w-3 h-3 mr-1"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                                  clipRule="evenodd"
-                                />
-                              </svg>
-                              11:00 - 12:00
-                            </Badge>
-                          </Timeline.Time>
-
-                          <Timeline.Title>
-                            <a href="#" className="hover:underline">
-                              Opening remarks
-                            </a>
-                          </Timeline.Title>
-                          <div className="flex items-center gap-3">
-                            <img
-                              className="object-cover w-12 h-12 rounded-full shrink-0"
-                              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
-                              alt=""
-                            />
-                            <div>
-                              <p className="text-lg font-medium leading-tight text-gray-900 dark:text-white">
-                                Jese Leos
-                              </p>
-                              <p className="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                CEO &amp; Co Founder Bergside LLC
-                              </p>
-                            </div>
-                          </div>
-                        </Timeline.Content>
-                      </Timeline.Item>
-                      <Timeline.Item className="ml-0 space-y-3 mb-0 md:pl-5 md:border-b border-gray-200 dark:border-gray-700 py-5">
-                        <Timeline.Point />
-                        <Timeline.Content>
-                          <Timeline.Time>
-                            <Badge className="w-fit">
-                              <svg
-                                aria-hidden="true"
-                                className="w-3 h-3 mr-1"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                                  clipRule="evenodd"
-                                />
-                              </svg>
-                              10:00 - 11:00
-                            </Badge>
-                          </Timeline.Time>
-                          <Timeline.Title>
-                            <a href="#" className="hover:underline">
-                              Women in Streaming Media Networking
-                            </a>
-                          </Timeline.Title>
-                          <div className="flex items-center gap-3">
-                            <img
-                              className="object-cover w-12 h-12 rounded-full shrink-0"
-                              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/leslie-livingston.png"
-                              alt=""
-                            />
-                            <div>
-                              <p className="text-lg font-medium leading-tight text-gray-900 dark:text-white">
-                                Leslie Livingston
-                              </p>
-                              <p className="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                CEO &amp; Co Founder Meta
-                              </p>
-                            </div>
-                          </div>
-                        </Timeline.Content>
-                      </Timeline.Item>
-                      <Timeline.Item className="ml-0 space-y-3 mb-0 md:border-r md:border-b border-gray-200 dark:border-gray-700 py-5">
-                        <Timeline.Point />
-                        <Timeline.Content>
-                          <Timeline.Time>
-                            <Badge className="w-fit">
-                              <svg
-                                aria-hidden="true"
-                                className="w-3 h-3 mr-1"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                                  clipRule="evenodd"
-                                />
-                              </svg>
-                              9:00 - 10:00
-                            </Badge>
-                          </Timeline.Time>
-
-                          <Timeline.Title>
-                            <a href="#" className="hover:underline">
-                              Opening remarks
-                            </a>
-                          </Timeline.Title>
-                          <div className="flex items-center gap-3">
-                            <img
-                              className="object-cover w-12 h-12 rounded-full shrink-0"
-                              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
-                              alt=""
-                            />
-                            <div>
-                              <p className="text-lg font-medium leading-tight text-gray-900 dark:text-white">
-                                Jese Leos
-                              </p>
-                              <p className="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                CEO &amp; Co Founder Bergside LLC
-                              </p>
-                            </div>
-                          </div>
-                        </Timeline.Content>
-                      </Timeline.Item>
-                      <Timeline.Item className="ml-0 space-y-3 mb-0 md:pl-5 md:border-b border-gray-200 dark:border-gray-700 py-5">
-                        <Timeline.Point />
-                        <Timeline.Content>
-                          <Timeline.Time>
-                            <Badge className="w-fit">
-                              <svg
-                                aria-hidden="true"
-                                className="w-3 h-3 mr-1"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                                  clipRule="evenodd"
-                                />
-                              </svg>
-                              10:00 - 11:00
-                            </Badge>
-                          </Timeline.Time>
-                          <Timeline.Title>
-                            <a href="#" className="hover:underline">
-                              Women in Streaming Media Networking
-                            </a>
-                          </Timeline.Title>
-                          <div className="flex items-center gap-3">
-                            <img
-                              className="object-cover w-12 h-12 rounded-full shrink-0"
-                              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/leslie-livingston.png"
-                              alt=""
-                            />
-                            <div>
-                              <p className="text-lg font-medium leading-tight text-gray-900 dark:text-white">
-                                Leslie Livingston
-                              </p>
-                              <p className="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                CEO &amp; Co Founder Meta
-                              </p>
-                            </div>
-                          </div>
-                        </Timeline.Content>
-                      </Timeline.Item>
+                      {leftRightSchedule(day.id)}
                     </div>
                   </Timeline>
                 </Tabs.Item>
@@ -396,354 +54,7 @@ const Schedule = () => {
                 <Tabs.Item title={day.date} key={day.id}>
                   <Timeline className="border-0">
                     <div className="grid max-w-5xl grid-cols-1 p-5 mx-auto border border-gray-100 rounded-lg bg-gray-50 sm:grid-cols-2 dark:bg-gray-800 dark:border-gray-700">
-                      <Timeline.Item className="ml-0 space-y-3 mb-0 md:border-r md:border-b border-gray-200 dark:border-gray-700 py-5">
-                        <Timeline.Point />
-                        <Timeline.Content>
-                          <Timeline.Time>
-                            <Badge className="w-fit">
-                              <svg
-                                aria-hidden="true"
-                                className="w-3 h-3 mr-1"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                                  clipRule="evenodd"
-                                />
-                              </svg>
-                              9:00 - 10:00
-                            </Badge>
-                          </Timeline.Time>
-
-                          <Timeline.Title>
-                            <a href="#" className="hover:underline">
-                              Opening remarks
-                            </a>
-                          </Timeline.Title>
-                          <div className="flex items-center gap-3">
-                            <img
-                              className="object-cover w-12 h-12 rounded-full shrink-0"
-                              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
-                              alt=""
-                            />
-                            <div>
-                              <p className="text-lg font-medium leading-tight text-gray-900 dark:text-white">
-                                Jese Leos
-                              </p>
-                              <p className="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                CEO &amp; Co Founder Bergside LLC
-                              </p>
-                            </div>
-                          </div>
-                        </Timeline.Content>
-                      </Timeline.Item>
-                      <Timeline.Item className="ml-0 space-y-3 mb-0 md:pl-5 md:border-b border-gray-200 dark:border-gray-700 py-5">
-                        <Timeline.Point />
-                        <Timeline.Content>
-                          <Timeline.Time>
-                            <Badge className="w-fit">
-                              <svg
-                                aria-hidden="true"
-                                className="w-3 h-3 mr-1"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                                  clipRule="evenodd"
-                                />
-                              </svg>
-                              10:00 - 11:00
-                            </Badge>
-                          </Timeline.Time>
-                          <Timeline.Title>
-                            <a href="#" className="hover:underline">
-                              Women in Streaming Media Networking
-                            </a>
-                          </Timeline.Title>
-                          <div className="flex items-center gap-3">
-                            <img
-                              className="object-cover w-12 h-12 rounded-full shrink-0"
-                              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/leslie-livingston.png"
-                              alt=""
-                            />
-                            <div>
-                              <p className="text-lg font-medium leading-tight text-gray-900 dark:text-white">
-                                Leslie Livingston
-                              </p>
-                              <p className="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                CEO &amp; Co Founder Meta
-                              </p>
-                            </div>
-                          </div>
-                        </Timeline.Content>
-                      </Timeline.Item>
-                      <Timeline.Item className="ml-0 space-y-3 mb-0 md:border-r md:border-b border-gray-200 dark:border-gray-700 py-5">
-                        <Timeline.Point />
-                        <Timeline.Content>
-                          <Timeline.Time>
-                            <Badge className="w-fit">
-                              <svg
-                                aria-hidden="true"
-                                className="w-3 h-3 mr-1"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                                  clipRule="evenodd"
-                                />
-                              </svg>
-                              9:00 - 10:00
-                            </Badge>
-                          </Timeline.Time>
-
-                          <Timeline.Title>
-                            <a href="#" className="hover:underline">
-                              Opening remarks
-                            </a>
-                          </Timeline.Title>
-                          <div className="flex items-center gap-3">
-                            <img
-                              className="object-cover w-12 h-12 rounded-full shrink-0"
-                              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
-                              alt=""
-                            />
-                            <div>
-                              <p className="text-lg font-medium leading-tight text-gray-900 dark:text-white">
-                                Jese Leos
-                              </p>
-                              <p className="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                CEO &amp; Co Founder Bergside LLC
-                              </p>
-                            </div>
-                          </div>
-                        </Timeline.Content>
-                      </Timeline.Item>
-                      <Timeline.Item className="ml-0 space-y-3 mb-0 md:pl-5 md:border-b border-gray-200 dark:border-gray-700 py-5">
-                        <Timeline.Point />
-                        <Timeline.Content>
-                          <Timeline.Time>
-                            <Badge className="w-fit">
-                              <svg
-                                aria-hidden="true"
-                                className="w-3 h-3 mr-1"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                                  clipRule="evenodd"
-                                />
-                              </svg>
-                              10:00 - 11:00
-                            </Badge>
-                          </Timeline.Time>
-                          <Timeline.Title>
-                            <a href="#" className="hover:underline">
-                              Women in Streaming Media Networking
-                            </a>
-                          </Timeline.Title>
-                          <div className="flex items-center gap-3">
-                            <img
-                              className="object-cover w-12 h-12 rounded-full shrink-0"
-                              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/leslie-livingston.png"
-                              alt=""
-                            />
-                            <div>
-                              <p className="text-lg font-medium leading-tight text-gray-900 dark:text-white">
-                                Leslie Livingston
-                              </p>
-                              <p className="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                CEO &amp; Co Founder Meta
-                              </p>
-                            </div>
-                          </div>
-                        </Timeline.Content>
-                      </Timeline.Item>
-                      <Timeline.Item className="ml-0 space-y-3 mb-0 md:border-r md:border-b border-gray-200 dark:border-gray-700 py-5">
-                        <Timeline.Point />
-                        <Timeline.Content>
-                          <Timeline.Time>
-                            <Badge className="w-fit">
-                              <svg
-                                aria-hidden="true"
-                                className="w-3 h-3 mr-1"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                                  clipRule="evenodd"
-                                />
-                              </svg>
-                              11:00 - 12:00
-                            </Badge>
-                          </Timeline.Time>
-
-                          <Timeline.Title>
-                            <a href="#" className="hover:underline">
-                              Opening remarks
-                            </a>
-                          </Timeline.Title>
-                          <div className="flex items-center gap-3">
-                            <img
-                              className="object-cover w-12 h-12 rounded-full shrink-0"
-                              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
-                              alt=""
-                            />
-                            <div>
-                              <p className="text-lg font-medium leading-tight text-gray-900 dark:text-white">
-                                Jese Leos
-                              </p>
-                              <p className="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                CEO &amp; Co Founder Bergside LLC
-                              </p>
-                            </div>
-                          </div>
-                        </Timeline.Content>
-                      </Timeline.Item>
-                      <Timeline.Item className="ml-0 space-y-3 mb-0 md:pl-5 md:border-b border-gray-200 dark:border-gray-700 py-5">
-                        <Timeline.Point />
-                        <Timeline.Content>
-                          <Timeline.Time>
-                            <Badge className="w-fit">
-                              <svg
-                                aria-hidden="true"
-                                className="w-3 h-3 mr-1"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                                  clipRule="evenodd"
-                                />
-                              </svg>
-                              10:00 - 11:00
-                            </Badge>
-                          </Timeline.Time>
-                          <Timeline.Title>
-                            <a href="#" className="hover:underline">
-                              Women in Streaming Media Networking
-                            </a>
-                          </Timeline.Title>
-                          <div className="flex items-center gap-3">
-                            <img
-                              className="object-cover w-12 h-12 rounded-full shrink-0"
-                              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/leslie-livingston.png"
-                              alt=""
-                            />
-                            <div>
-                              <p className="text-lg font-medium leading-tight text-gray-900 dark:text-white">
-                                Leslie Livingston
-                              </p>
-                              <p className="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                CEO &amp; Co Founder Meta
-                              </p>
-                            </div>
-                          </div>
-                        </Timeline.Content>
-                      </Timeline.Item>
-                      <Timeline.Item className="ml-0 space-y-3 mb-0 md:border-r md:border-b border-gray-200 dark:border-gray-700 py-5">
-                        <Timeline.Point />
-                        <Timeline.Content>
-                          <Timeline.Time>
-                            <Badge className="w-fit">
-                              <svg
-                                aria-hidden="true"
-                                className="w-3 h-3 mr-1"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                                  clipRule="evenodd"
-                                />
-                              </svg>
-                              9:00 - 10:00
-                            </Badge>
-                          </Timeline.Time>
-
-                          <Timeline.Title>
-                            <a href="#" className="hover:underline">
-                              Opening remarks
-                            </a>
-                          </Timeline.Title>
-                          <div className="flex items-center gap-3">
-                            <img
-                              className="object-cover w-12 h-12 rounded-full shrink-0"
-                              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
-                              alt=""
-                            />
-                            <div>
-                              <p className="text-lg font-medium leading-tight text-gray-900 dark:text-white">
-                                Jese Leos
-                              </p>
-                              <p className="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                CEO &amp; Co Founder Bergside LLC
-                              </p>
-                            </div>
-                          </div>
-                        </Timeline.Content>
-                      </Timeline.Item>
-                      <Timeline.Item className="ml-0 space-y-3 mb-0 md:pl-5 md:border-b border-gray-200 dark:border-gray-700 py-5">
-                        <Timeline.Point />
-                        <Timeline.Content>
-                          <Timeline.Time>
-                            <Badge className="w-fit">
-                              <svg
-                                aria-hidden="true"
-                                className="w-3 h-3 mr-1"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                              >
-                                <path
-                                  fillRule="evenodd"
-                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                                  clipRule="evenodd"
-                                />
-                              </svg>
-                              10:00 - 11:00
-                            </Badge>
-                          </Timeline.Time>
-                          <Timeline.Title>
-                            <a href="#" className="hover:underline">
-                              Women in Streaming Media Networking
-                            </a>
-                          </Timeline.Title>
-                          <div className="flex items-center gap-3">
-                            <img
-                              className="object-cover w-12 h-12 rounded-full shrink-0"
-                              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/leslie-livingston.png"
-                              alt=""
-                            />
-                            <div>
-                              <p className="text-lg font-medium leading-tight text-gray-900 dark:text-white">
-                                Leslie Livingston
-                              </p>
-                              <p className="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                CEO &amp; Co Founder Meta
-                              </p>
-                            </div>
-                          </div>
-                        </Timeline.Content>
-                      </Timeline.Item>
+                      {leftRightSchedule(day.id)}
                     </div>
                   </Timeline>
                 </Tabs.Item>
@@ -757,7 +68,7 @@ const Schedule = () => {
             title=""
             className="inline-flex items-center text-lg font-medium text-primary-600 hover:underline dark:text-primary-500"
           >
-            Buy tickets
+            Записаться
             <svg
               aria-hidden="true"
               className="w-5 h-5 ml-2"
@@ -779,3 +90,112 @@ const Schedule = () => {
 };
 
 export default Schedule;
+
+const leftRightSchedule = (day) => {
+  let i = 1;
+  return scheduleTraining[day].map((training) => {
+    const trainerInfo = getTrainerInfo(training.trainerId, team);
+
+    return i++ % 2 !== 0 ? (
+      <Timeline.Item
+        className="ml-0 space-y-3 mb-0 md:border-r md:border-b border-gray-200 dark:border-gray-700 py-5"
+        key={training.key}
+      >
+        <Timeline.Point />
+        <Timeline.Content>
+          <Timeline.Time>
+            <Badge className="w-fit">
+              <svg
+                aria-hidden="true"
+                className="w-3 h-3 mr-1"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              {training.time}
+            </Badge>
+          </Timeline.Time>
+
+          <Timeline.Title>
+            <a href="#" className="hover:underline">
+              {training.title}
+            </a>
+          </Timeline.Title>
+          <div className="flex items-center gap-3">
+            <Image
+              className="object-cover w-12 h-12 rounded-full shrink-0"
+              src={trainerInfo.imageUrl}
+              alt=""
+              width={50}
+              height={50}
+            />
+            <div>
+              <p className="text-lg font-medium leading-tight text-gray-900 dark:text-white">
+                {trainerInfo.name}
+              </p>
+              <p className="text-sm font-normal text-gray-500 dark:text-gray-400">
+                {trainerInfo.role}
+              </p>
+            </div>
+          </div>
+        </Timeline.Content>
+      </Timeline.Item>
+    ) : (
+      <Timeline.Item
+        className="ml-0 space-y-3 mb-0 md:pl-5 md:border-b border-gray-200 dark:border-gray-700 py-5"
+        key={training.key}
+      >
+        <Timeline.Point />
+        <Timeline.Content>
+          <Timeline.Time>
+            <Badge className="w-fit">
+              <svg
+                aria-hidden="true"
+                className="w-3 h-3 mr-1"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              {training.time}
+            </Badge>
+          </Timeline.Time>
+
+          <Timeline.Title>
+            <a href="#" className="hover:underline">
+              {training.title}
+            </a>
+          </Timeline.Title>
+          <div className="flex items-center gap-3">
+            <Image
+              className="object-cover w-12 h-12 rounded-full shrink-0"
+              src={trainerInfo.imageUrl}
+              alt=""
+              width={50}
+              height={50}
+            />
+            <div>
+              <p className="text-lg font-medium leading-tight text-gray-900 dark:text-white">
+                {trainerInfo.name}
+              </p>
+              <p className="text-sm font-normal text-gray-500 dark:text-gray-400">
+                {trainerInfo.role}
+              </p>
+            </div>
+          </div>
+        </Timeline.Content>
+      </Timeline.Item>
+    );
+  });
+};

@@ -30,6 +30,30 @@ const scheduleTraining = {
       title: "Кикбоксинг",
       trainerId: 7,
     },
+    {
+      key: 1.6,
+      time: "19:30 - 21:00",
+      title: "Тайский бокс",
+      trainerId: 8,
+    },
+    {
+      key: 1.7,
+      time: "21:00 - 22:30",
+      title: "Тайский бокс",
+      trainerId: 9,
+    },
+    {
+      key: 1.8,
+      time: "22:30 - 00:00",
+      title: "Тайский бокс",
+      trainerId: 1,
+    },
+    {
+      key: 1.9,
+      time: "00:00 - 01:30",
+      title: "Тайский бокс",
+      trainerId: 2,
+    },
   ],
   2: [
     {
@@ -61,6 +85,30 @@ const scheduleTraining = {
       time: "18:00 - 19:30",
       title: "Кикбоксинг",
       trainerId: 7,
+    },
+    {
+      key: 1.6,
+      time: "19:30 - 21:00",
+      title: "Тайский бокс",
+      trainerId: 8,
+    },
+    {
+      key: 1.7,
+      time: "21:00 - 22:30",
+      title: "Тайский бокс",
+      trainerId: 9,
+    },
+    {
+      key: 1.8,
+      time: "22:30 - 00:00",
+      title: "Тайский бокс",
+      trainerId: 1,
+    },
+    {
+      key: 1.9,
+      time: "00:00 - 01:30",
+      title: "Тайский бокс",
+      trainerId: 2,
     },
   ],
   3: [
@@ -94,6 +142,30 @@ const scheduleTraining = {
       title: "Кикбоксинг",
       trainerId: 7,
     },
+    {
+      key: 1.6,
+      time: "19:30 - 21:00",
+      title: "Тайский бокс",
+      trainerId: 8,
+    },
+    {
+      key: 1.7,
+      time: "21:00 - 22:30",
+      title: "Тайский бокс",
+      trainerId: 9,
+    },
+    {
+      key: 1.8,
+      time: "22:30 - 00:00",
+      title: "Тайский бокс",
+      trainerId: 1,
+    },
+    {
+      key: 1.9,
+      time: "00:00 - 01:30",
+      title: "Тайский бокс",
+      trainerId: 2,
+    },
   ],
   4: [
     {
@@ -125,6 +197,30 @@ const scheduleTraining = {
       time: "18:00 - 19:30",
       title: "Кикбоксинг",
       trainerId: 7,
+    },
+    {
+      key: 1.6,
+      time: "19:30 - 21:00",
+      title: "Тайский бокс",
+      trainerId: 8,
+    },
+    {
+      key: 1.7,
+      time: "21:00 - 22:30",
+      title: "Тайский бокс",
+      trainerId: 9,
+    },
+    {
+      key: 1.8,
+      time: "22:30 - 00:00",
+      title: "Тайский бокс",
+      trainerId: 1,
+    },
+    {
+      key: 1.9,
+      time: "00:00 - 01:30",
+      title: "Тайский бокс",
+      trainerId: 2,
     },
   ],
   5: [
@@ -158,6 +254,30 @@ const scheduleTraining = {
       title: "Кикбоксинг",
       trainerId: 7,
     },
+    {
+      key: 1.6,
+      time: "19:30 - 21:00",
+      title: "Тайский бокс",
+      trainerId: 8,
+    },
+    {
+      key: 1.7,
+      time: "21:00 - 22:30",
+      title: "Тайский бокс",
+      trainerId: 9,
+    },
+    {
+      key: 1.8,
+      time: "22:30 - 00:00",
+      title: "Тайский бокс",
+      trainerId: 1,
+    },
+    {
+      key: 1.9,
+      time: "00:00 - 01:30",
+      title: "Тайский бокс",
+      trainerId: 2,
+    },
   ],
   6: [
     {
@@ -190,6 +310,30 @@ const scheduleTraining = {
       title: "Кикбоксинг",
       trainerId: 7,
     },
+    {
+      key: 1.6,
+      time: "19:30 - 21:00",
+      title: "Тайский бокс",
+      trainerId: 8,
+    },
+    {
+      key: 1.7,
+      time: "21:00 - 22:30",
+      title: "Тайский бокс",
+      trainerId: 9,
+    },
+    {
+      key: 1.8,
+      time: "22:30 - 00:00",
+      title: "Тайский бокс",
+      trainerId: 1,
+    },
+    {
+      key: 1.9,
+      time: "00:00 - 01:30",
+      title: "Тайский бокс",
+      trainerId: 2,
+    },
   ],
   7: [
     {
@@ -221,6 +365,30 @@ const scheduleTraining = {
       time: "18:00 - 19:30",
       title: "Кикбоксинг",
       trainerId: 7,
+    },
+    {
+      key: 1.6,
+      time: "19:30 - 21:00",
+      title: "Тайский бокс",
+      trainerId: 8,
+    },
+    {
+      key: 1.7,
+      time: "21:00 - 22:30",
+      title: "Тайский бокс",
+      trainerId: 9,
+    },
+    {
+      key: 1.8,
+      time: "22:30 - 00:00",
+      title: "Тайский бокс",
+      trainerId: 1,
+    },
+    {
+      key: 1.9,
+      time: "00:00 - 01:30",
+      title: "Тайский бокс",
+      trainerId: 2,
     },
   ],
 };

@@ -35,7 +35,4 @@ const getCurrentWeekDays = () => {
   return currentWeekDays;
 };
 
-const getCurrentWeekDaysTest = getCurrentWeekDays();
-console.log(getCurrentWeekDaysTest);
-
 export default getCurrentWeekDays;

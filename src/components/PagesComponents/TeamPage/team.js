@@ -1,4 +1,4 @@
-export const people = [
+export const team = [
   {
     id: 1,
     name: "Анна Иванова",
