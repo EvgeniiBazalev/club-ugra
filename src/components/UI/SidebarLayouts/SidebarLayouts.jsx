@@ -33,8 +33,8 @@ const teams = [
     initial: "Д",
     current: false,
   },
-  { id: 2, name: "Записаться", href: "#", initial: "З", current: false },
-  { id: 3, name: "Контакты", href: "#", initial: "К", current: false },
+
+  { id: 2, name: "Контакты", href: "/contact", initial: "К", current: false },
 ];
 
 function classNames(...classes) {
