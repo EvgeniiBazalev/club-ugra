@@ -21,8 +21,18 @@ const navigation = [
   { name: "Тренерский состав", href: "/team", icon: UsersIcon, current: false },
   { name: "Оснащение", href: "/equipment", icon: FolderIcon, current: false },
   { name: "Расписание", href: "/schedule", icon: CalendarIcon, current: false },
-  { name: "Документы", href: "#", icon: DocumentDuplicateIcon, current: false },
-  { name: "Новости и акции", href: "#", icon: ChartPieIcon, current: false },
+  {
+    name: "Документы",
+    href: "/documents",
+    icon: DocumentDuplicateIcon,
+    current: false,
+  },
+  {
+    name: "Новости и акции",
+    href: "/news",
+    icon: ChartPieIcon,
+    current: false,
+  },
   { name: "О клубе", href: "/about", icon: BookOpenIcon, current: false },
 ];
 const teams = [
