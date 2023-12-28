@@ -25,7 +25,7 @@ const TeamMain = () => {
         >
           {team.map((person) => (
             <li
-              key={person.name}
+              key={person.id}
               className="flex flex-col gap-10 pt-12 sm:flex-row"
             >
               <Image

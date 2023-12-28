@@ -1,6 +1,7 @@
 "use client";
 
-import { Fragment, useState } from "react";
+import { usePathname } from "next/navigation";
+import { Fragment, useState, useEffect } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
@@ -16,43 +17,68 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 
-const navigation = [
-  { name: "Главная", href: "/", icon: HomeIcon, current: true },
-  { name: "Тренерский состав", href: "/team", icon: UsersIcon, current: false },
-  { name: "Оснащение", href: "/equipment", icon: FolderIcon, current: false },
-  { name: "Расписание", href: "/schedule", icon: CalendarIcon, current: false },
-  {
-    name: "Документы",
-    href: "/documents",
-    icon: DocumentDuplicateIcon,
-    current: false,
-  },
-  {
-    name: "Новости и акции",
-    href: "/news",
-    icon: ChartPieIcon,
-    current: false,
-  },
-  { name: "О клубе", href: "/about", icon: BookOpenIcon, current: false },
-];
-const teams = [
-  {
-    id: 1,
-    name: "Доска почета",
-    href: "/chempions",
-    initial: "Д",
-    current: false,
-  },
-
-  { id: 2, name: "Контакты", href: "/contact", initial: "К", current: false },
-];
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function SidebarLayouts({ children }) {
+  const router = usePathname();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const [navigation, setNavigation] = useState([
+    { name: "Главная", href: "/", icon: HomeIcon, current: false },
+    {
+      name: "Тренерский состав",
+      href: "/team",
+      icon: UsersIcon,
+      current: false,
+    },
+    { name: "Оснащение", href: "/equipment", icon: FolderIcon, current: false },
+    {
+      name: "Расписание",
+      href: "/schedule",
+      icon: CalendarIcon,
+      current: false,
+    },
+    {
+      name: "Документы",
+      href: "/documents",
+      icon: DocumentDuplicateIcon,
+      current: false,
+    },
+    {
+      name: "Новости и акции",
+      href: "/news",
+      icon: ChartPieIcon,
+      current: false,
+    },
+    { name: "О клубе", href: "/about", icon: BookOpenIcon, current: false },
+  ]);
+
+  const [teams, setTeams] = useState([
+    {
+      id: 1,
+      name: "Доска почета",
+      href: "/chempions",
+      initial: "Д",
+      current: false,
+    },
+    { id: 2, name: "Контакты", href: "/contact", initial: "К", current: false },
+  ]);
+
+  useEffect(() => {
+    const updatedNavigation = navigation.map((item) => ({
+      ...item,
+      current: router === item.href,
+    }));
+    setNavigation(updatedNavigation);
+
+    const updatedTeams = teams.map((item) => ({
+      ...item,
+      current: router === item.href,
+    }));
+    setTeams(updatedTeams);
+  }, [router]);
 
   return (
     <>
