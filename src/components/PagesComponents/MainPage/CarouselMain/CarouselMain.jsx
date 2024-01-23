@@ -57,28 +57,51 @@ const CarouselMain = () => {
                     height={100}
                   />
                 </a>
-
-                {/* <Image
-                  className="mr-8 h-8 w-auto md:h-12"
-                  src="/carusel/8.jpg"
-                  alt=""
-                  width={100}
-                  height={100}
-                />
-                <Image
-                  className="mr-8 h-8 w-auto dark:invert md:h-12"
-                  src="/carusel/9.jpg"
-                  alt=""
-                  width={100}
-                  height={100}
-                />
-                <Image
-                  className="h-8 w-auto md:h-12"
-                  src="/carusel/10.jpg"
-                  alt=""
-                  width={100}
-                  height={100}
-                /> */}
+                <a href="https://achillesstore.ru" target="_blank">
+                  <Image
+                    className="mr-4 h-10 w-auto md:h-12"
+                    src="/partners/ahiles.png"
+                    alt=""
+                    width={100}
+                    height={100}
+                  />
+                </a>
+                <a href="https://www.alsi-grupp.ru" target="_blank">
+                  <Image
+                    className="mr-4 h-10 w-auto md:h-12"
+                    src="/partners/alsi.png"
+                    alt=""
+                    width={100}
+                    height={100}
+                  />
+                </a>
+                <a href="https://avers-sport.ru" target="_blank">
+                  <Image
+                    className="mr-4 h-10 w-auto md:h-12"
+                    src="/partners/avers.png"
+                    alt=""
+                    width={100}
+                    height={100}
+                  />
+                </a>
+                <a href="https://vk.com/istokisurgut" target="_blank">
+                  <Image
+                    className="mr-4 h-10 w-auto md:h-12"
+                    src="/partners/istoki.jpg"
+                    alt=""
+                    width={100}
+                    height={100}
+                  />
+                </a>
+                <a href="https://skuvis.ru" target="_blank">
+                  <Image
+                    className="mr-4 h-10 w-auto md:h-12"
+                    src="/partners/uvis.png"
+                    alt=""
+                    width={100}
+                    height={100}
+                  />
+                </a>
               </div>
             </div>
           </div>
