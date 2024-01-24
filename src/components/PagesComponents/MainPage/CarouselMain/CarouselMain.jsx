@@ -22,6 +22,7 @@ const CarouselMain = () => {
               <Button
                 size="lg"
                 className="bg-indigo-600 enabled:hover:bg-indigo-700"
+                href="/contact"
               >
                 Записаться
               </Button>
@@ -30,6 +31,7 @@ const CarouselMain = () => {
                 color="gray"
                 className="[&>span]:items-center"
                 outline
+                href="/about"
               >
                 <svg
                   aria-hidden="true"
