@@ -64,7 +64,7 @@ const Schedule = () => {
         </div>
         <div className="mt-8 text-center">
           <a
-            href="#"
+            href="/contact"
             title=""
             className="inline-flex items-center text-lg font-medium text-primary-600 hover:underline dark:text-primary-500"
           >

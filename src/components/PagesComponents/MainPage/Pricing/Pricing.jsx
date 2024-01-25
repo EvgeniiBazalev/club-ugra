@@ -4,7 +4,7 @@ const tiers = [
   {
     name: "Разовый",
     id: "tier-freelancer",
-    href: "#",
+    href: "/contact",
     priceMonthly: "от 400₽",
     description:
       "Вы планируете изредка посещать клуб или попробовать новое направление.",
@@ -19,7 +19,7 @@ const tiers = [
   {
     name: "Месячный",
     id: "tier-startup",
-    href: "#",
+    href: "/contact",
     priceMonthly: "от 250₽",
     description:
       "Пользуется наибольшей популярностью у начинающих спортсменов и спортсменов со средним уровнем подготовки",
@@ -35,7 +35,7 @@ const tiers = [
   {
     name: "Годовой",
     id: "tier-enterprise",
-    href: "#",
+    href: "/contact",
     priceMonthly: "от 200₽",
     description:
       "Идеально подходит для постоянных клиентов, регулярно посещающих наш клуб.",

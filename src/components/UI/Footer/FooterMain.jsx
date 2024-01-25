@@ -16,14 +16,14 @@ const FooterMain = () => {
           великим достижениям!
         </p>
         <Footer.LinkGroup className="mb-6 flex flex-wrap items-center justify-center text-gray-900 dark:text-white text-base">
-          <Footer.Link href="#" className="mr-4 hover:underline md:mr-6 ">
+          <Footer.Link href="/about" className="mr-4 hover:underline md:mr-6 ">
             О клубе
           </Footer.Link>
-          <Footer.Link href="#" className="mr-4 hover:underline md:mr-6">
+          <Footer.Link href="/news" className="mr-4 hover:underline md:mr-6">
             Новости
           </Footer.Link>
 
-          <Footer.Link href="#" className="mr-4 hover:underline md:mr-6">
+          <Footer.Link href="/contact" className="mr-4 hover:underline md:mr-6">
             Контакты
           </Footer.Link>
         </Footer.LinkGroup>
