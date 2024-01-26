@@ -1,4 +1,4 @@
-export default function Login() {
+export default function page() {
   return (
     <form action="/auth/login" method="post">
       <label htmlFor="email">Email</label>
