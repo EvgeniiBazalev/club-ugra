@@ -8,7 +8,7 @@ const FooterMain = () => {
           alt="Logo"
           href="#"
           name="КЛУБ ЮГРА"
-          src="main/logo3.ico"
+          src="/main/logo3.ico"
         />
         <p className="my-6 text-gray-500 dark:text-gray-400">
           Среди трудностей и вызовов, мы — единое целое, Клуб Югра берется за

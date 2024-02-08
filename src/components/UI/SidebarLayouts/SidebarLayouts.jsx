@@ -16,6 +16,7 @@ import {
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
+import { logo } from "/public/main/logo3.ico";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -140,7 +141,7 @@ export default function SidebarLayouts({ children }) {
                     <div className="flex h-44 ml-auto mr-auto shrink-0 items-center">
                       <Image
                         className="h-44 w-auto mt-5"
-                        src="main/logo.svg"
+                        src="/main/logo.svg"
                         alt="Your Company"
                         width={500}
                         height={500}
@@ -217,7 +218,7 @@ export default function SidebarLayouts({ children }) {
             <div className="flex ml-auto mr-auto h-44 shrink-0 items-center">
               <Image
                 className="h-44 w-auto mt-5"
-                src="main/logo.svg"
+                src="/main/logo.svg"
                 alt="Your Company"
                 width={500}
                 height={500}

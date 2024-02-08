@@ -1,5 +1,6 @@
 "use client";
 
+import LogIn from "@/components/Auth/LogIn";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -46,6 +47,7 @@ export default function Login() {
 
   return (
     <>
+      <LogIn></LogIn>
       <input
         name="email"
         onChange={(e) => setEmail(e.target.value)}
