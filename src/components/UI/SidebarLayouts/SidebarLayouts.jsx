@@ -1,5 +1,5 @@
 "use client";
-
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { usePathname } from "next/navigation";
 import { Fragment, useState, useEffect } from "react";
 import { Dialog, Transition } from "@headlessui/react";
@@ -16,15 +16,26 @@ import {
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
-import { logo } from "/public/main/logo3.ico";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function SidebarLayouts({ children }) {
+  const supabase = createClientComponentClient();
   const router = usePathname();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    const getData = async () => {
+      const { data, error } = await supabase.auth.getUser();
+      setUser(data.user);
+    };
+
+    getData();
+  }, [supabase.auth, router]);
 
   const [navigation, setNavigation] = useState([
     { name: "Главная", href: "/", icon: HomeIcon, current: false },
@@ -280,10 +291,20 @@ export default function SidebarLayouts({ children }) {
                   </ul>
                 </li>
                 <li className="-mx-6 mt-auto">
+                  {user ? (
+                    <pre className="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-white hover:bg-indigo-700">
+                      {user.email}
+                    </pre>
+                  ) : null}
                   <a
-                    href="#"
+                    href="/admin/SignIn"
                     className="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-white hover:bg-indigo-700"
-                  ></a>
+                  >
+                    Вход для администратора
+                    <br />
+                  </a>
+
+                  <p></p>
                 </li>
               </ul>
             </nav>

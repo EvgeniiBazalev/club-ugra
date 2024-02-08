@@ -1,8 +1,8 @@
-import SignOut from "@/components/Auth/SignOut";
+import SignUp from "@/components/Auth/SignUp";
 import React from "react";
 
 const page = () => {
-  return <SignOut />;
+  return <SignUp />;
 };
 
 export default page;
