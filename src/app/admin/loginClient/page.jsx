@@ -2,13 +2,23 @@
 
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [user, setUser] = useState();
   const router = useRouter();
   const supabase = createClientComponentClient();
+
+  useEffect(() => {
+    const getData = async () => {
+      const { data, error } = await supabase.auth.getUser();
+      setUser(data.user);
+    };
+
+    getData();
+  }, [supabase.auth]);
 
   const handleSignUp = async () => {
     await supabase.auth.signUp({
@@ -50,6 +60,7 @@ export default function Login() {
       <button onClick={handleSignUp}>Sign up</button>
       <button onClick={handleSignIn}>Sign in</button>
       <button onClick={handleSignOut}>Sign out</button>
+      {user ? <pre>{user.email}</pre> : <p>Loading user...</p>}
     </>
   );
 }
