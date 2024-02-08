@@ -15,7 +15,7 @@ export default function Login() {
       email,
       password,
       options: {
-        emailRedirectTo: `${location.origin}/auth/callback`,
+        emailRedirectTo: `${location.origin}/admin/auth/callback`,
       },
     });
     router.refresh();
