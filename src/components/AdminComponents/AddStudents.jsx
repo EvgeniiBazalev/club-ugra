@@ -1,6 +1,7 @@
 "use client";
 
 import { useReducer, useState } from "react";
+import StudentsList from "./StudentsList";
 
 const initialArg = [
   {
@@ -8,7 +9,7 @@ const initialArg = [
     firstName: "Вася",
     patronymic: "Петрович",
     lastName: "Иванов",
-    birthdate: "01.01.2000",
+    birthday: "01.01.2000",
     email: "a@a.ru",
     phone: "+7 999 999 99 99",
     gender: "Мужской",
@@ -16,14 +17,14 @@ const initialArg = [
     trainer: "Тренер",
   },
 ];
-function reducer(state, action) {
+function reducer(studentsArrow, action) {
   switch (action.type) {
     case "addNewStudent": {
-      return [...state, action.student];
+      return [...studentsArrow, action.student];
     }
     case "changedStudent": {
       return {
-        state,
+        studentsArrow,
       };
     }
   }
@@ -31,13 +32,13 @@ function reducer(state, action) {
 }
 
 export default function AddStudents() {
-  const [state, dispatch] = useReducer(reducer, initialArg);
+  const [studentsArrow, dispatch] = useReducer(reducer, initialArg);
   const [student, setStudent] = useState({
     id: 0,
     firstName: "Вася",
     patronymic: "Петрович",
     lastName: "Иванов",
-    birthdate: "01.01.2000",
+    birthday: "01.01.2000",
     email: "a@a.ru",
     phone: "+7 999 999 99 99",
     gender: "Мужской",
@@ -51,7 +52,7 @@ export default function AddStudents() {
       type: "addNewStudent",
       student: {
         ...student,
-        id: state.length, // Создаем новый идентификатор для нового студента
+        id: studentsArrow.length, // Создаем новый идентификатор для нового студента
       },
     });
   }
@@ -143,9 +144,9 @@ export default function AddStudents() {
                 </label>
                 <div className="mt-2 sm:col-span-2 sm:mt-0">
                   <input
-                    value={student.birthdate}
+                    // value={student.birthday}
                     onChange={(e) =>
-                      setStudent({ ...student, birthdate: e.target.value })
+                      setStudent({ ...student, birthday: e.target.value })
                     }
                     type="date"
                     name="birthdate"
@@ -265,14 +266,8 @@ export default function AddStudents() {
           </div>
         </div>
       </form>
-      {state.map((student) => (
-        <div key={student.id}>
-          {student.firstName}
-          {student.phone}
-          {student.gender}
-          {student.streetAddress}
-        </div>
-      ))}
+
+      <StudentsList students={studentsArrow} />
     </>
   );
 }
