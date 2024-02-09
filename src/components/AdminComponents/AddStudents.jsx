@@ -1,9 +1,60 @@
 "use client";
 
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
+
+const initialArg = [
+  {
+    id: 0,
+    firstName: "Вася",
+    patronymic: "Петрович",
+    lastName: "Иванов",
+    birthdate: "01.01.2000",
+    email: "a@a.ru",
+    phone: "+7 999 999 99 99",
+    gender: "Мужской",
+    streetAddress: "ул. Пушкина",
+    trainer: "Тренер",
+  },
+];
+function reducer(state, action) {
+  switch (action.type) {
+    case "addNewStudent": {
+      return [...state, action.student];
+    }
+    case "changedStudent": {
+      return {
+        state,
+      };
+    }
+  }
+  throw Error("Unknown action: " + action.type);
+}
 
 export default function AddStudents() {
   const [state, dispatch] = useReducer(reducer, initialArg);
+  const [student, setStudent] = useState({
+    id: 0,
+    firstName: "Вася",
+    patronymic: "Петрович",
+    lastName: "Иванов",
+    birthdate: "01.01.2000",
+    email: "a@a.ru",
+    phone: "+7 999 999 99 99",
+    gender: "Мужской",
+    streetAddress: "ул. Пушкина",
+    trainer: "Тренер",
+  });
+
+  function handleAddStudent(event) {
+    event.preventDefault(); // Предотвращаем стандартное поведение отправки формы
+    dispatch({
+      type: "addNewStudent",
+      student: {
+        ...student,
+        id: state.length, // Создаем новый идентификатор для нового студента
+      },
+    });
+  }
 
   return (
     <>
@@ -26,6 +77,10 @@ export default function AddStudents() {
                 </label>
                 <div className="mt-2 sm:col-span-2 sm:mt-0">
                   <input
+                    value={student.firstName}
+                    onChange={(e) =>
+                      setStudent({ ...student, firstName: e.target.value })
+                    }
                     type="text"
                     name="first-name"
                     id="first-name"
@@ -44,6 +99,10 @@ export default function AddStudents() {
                 </label>
                 <div className="mt-2 sm:col-span-2 sm:mt-0">
                   <input
+                    value={student.patronymic}
+                    onChange={(e) =>
+                      setStudent({ ...student, patronymic: e.target.value })
+                    }
                     type="text"
                     name="patronymic"
                     id="patronymic"
@@ -62,6 +121,10 @@ export default function AddStudents() {
                 </label>
                 <div className="mt-2 sm:col-span-2 sm:mt-0">
                   <input
+                    value={student.lastName}
+                    onChange={(e) =>
+                      setStudent({ ...student, lastName: e.target.value })
+                    }
                     type="text"
                     name="last-name"
                     id="last-name"
@@ -80,6 +143,10 @@ export default function AddStudents() {
                 </label>
                 <div className="mt-2 sm:col-span-2 sm:mt-0">
                   <input
+                    value={student.birthdate}
+                    onChange={(e) =>
+                      setStudent({ ...student, birthdate: e.target.value })
+                    }
                     type="date"
                     name="birthdate"
                     id="birthdate"
@@ -98,6 +165,10 @@ export default function AddStudents() {
                 </label>
                 <div className="mt-2 sm:col-span-2 sm:mt-0">
                   <input
+                    value={student.email}
+                    onChange={(e) =>
+                      setStudent({ ...student, email: e.target.value })
+                    }
                     id="email"
                     name="email"
                     type="email"
@@ -116,6 +187,10 @@ export default function AddStudents() {
                 </label>
                 <div className="mt-2 sm:col-span-2 sm:mt-0">
                   <input
+                    value={student.phone}
+                    onChange={(e) =>
+                      setStudent({ ...student, phone: e.target.value })
+                    }
                     id="phone"
                     name="phone"
                     type="tel"
@@ -134,6 +209,10 @@ export default function AddStudents() {
                 </label>
                 <div className="mt-2 sm:col-span-2 sm:mt-0">
                   <select
+                    value={student.gender}
+                    onChange={(e) =>
+                      setStudent({ ...student, gender: e.target.value })
+                    }
                     id="gender"
                     name="gender"
                     autoComplete="sex"
@@ -154,6 +233,10 @@ export default function AddStudents() {
                 </label>
                 <div className="mt-2 sm:col-span-2 sm:mt-0">
                   <input
+                    value={student.streetAddress}
+                    onChange={(e) =>
+                      setStudent({ ...student, streetAddress: e.target.value })
+                    }
                     type="text"
                     name="street-address"
                     id="street-address"
@@ -173,6 +256,7 @@ export default function AddStudents() {
               Отмена
             </button>
             <button
+              onClick={handleAddStudent}
               type="submit"
               className="inline-flex justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
@@ -181,6 +265,14 @@ export default function AddStudents() {
           </div>
         </div>
       </form>
+      {state.map((student) => (
+        <div key={student.id}>
+          {student.firstName}
+          {student.phone}
+          {student.gender}
+          {student.streetAddress}
+        </div>
+      ))}
     </>
   );
 }
