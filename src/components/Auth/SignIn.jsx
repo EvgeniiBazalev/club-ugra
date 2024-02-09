@@ -10,12 +10,11 @@ export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, setUser] = useState();
+  const [isDataReceived, setIsDataReceived] = useState(false); // Состояние флага получения данных
   const router = useRouter();
   const supabase = createClientComponentClient();
 
   useEffect(() => {
-    let isDataReceived = false; // Флаг для проверки получения данных
-
     const getData = async () => {
       try {
         const { data, error } = await supabase.auth.getUser();
@@ -30,7 +29,8 @@ export default function SignIn() {
 
         if (data) {
           setUser(data.user);
-          isDataReceived = true; // Устанавливаем флаг в true после получения данных
+          router.push("/admin");
+          // Устанавливаем флаг в true после получения данных
         }
       } catch (error) {
         console.error(
@@ -41,15 +41,6 @@ export default function SignIn() {
     };
 
     getData(); // Вызов функции получения данных
-
-    // Проверяем флаг и срабатывает ли редирект
-    const redirectUser = () => {
-      if (isDataReceived) {
-        router.push("/admin");
-      }
-    };
-
-    redirectUser(); // Вызов функции редиректа
   }, [supabase.auth, router]);
 
   const handleSignIn = async () => {
@@ -57,7 +48,7 @@ export default function SignIn() {
       email,
       password,
     });
-    router.refresh();
+    location.reload();
   };
 
   return (

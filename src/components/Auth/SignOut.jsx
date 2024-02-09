@@ -22,7 +22,7 @@ export default function SignOut() {
 
   const handleSignOut = async () => {
     await supabase.auth.signOut();
-    router.refresh();
+    location.reload();
   };
 
   return user ? (
