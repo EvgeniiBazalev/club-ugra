@@ -10,7 +10,7 @@ export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, setUser] = useState();
-  const [isDataReceived, setIsDataReceived] = useState(false); // Состояние флага получения данных
+
   const router = useRouter();
   const supabase = createClientComponentClient();
 
