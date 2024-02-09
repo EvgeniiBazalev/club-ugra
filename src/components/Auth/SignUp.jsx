@@ -1,56 +1,67 @@
 "use client";
 import Image from "next/image";
-import { Button, Card, Checkbox, Label, TextInput } from "flowbite-react";
+import { Button, Card, Label, TextInput } from "flowbite-react";
+import passwordValidator from "password-validator";
 
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function LogIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [user, setUser] = useState();
+  const [user, setUser] = useState("");
+  const [passwordError, setPasswordError] = useState("");
 
   const router = useRouter();
   const supabase = createClientComponentClient();
 
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const { data, error } = await supabase.auth.getUser();
+  const schema = new passwordValidator();
 
-        if (error) {
-          console.error(
-            "Произошла ошибка при получении данных пользователя:",
-            error
-          );
-          return; // Остановить выполнение, если возникла ошибка
-        }
-
-        if (data) {
-          setUser(data.user);
-          router.push("/admin");
-        }
-      } catch (error) {
-        console.error(
-          "Произошла ошибка при получении данных пользователя:",
-          error
-        );
-      }
-    };
-
-    getData(); // Вызов функции получения данных
-  }, [supabase.auth, router]);
+  // Устанавливаем требования для пароля
+  schema
+    .is()
+    .min(6) // Минимум 6 символов
+    .is()
+    .max(15); // Максимум 15 символов
+  // .has()
+  // .uppercase() // Должна содержать заглавные буквы
+  // .has()
+  // .lowercase() // Должна содержать строчные буквы
+  // .has()
+  // .digits() // Должна содержать цифры
+  // .has()
+  // .symbols() // Должна содержать спецсимволы
+  // .has()
+  // .not()
+  // .spaces() // Не должна содержать пробелы
+  // .is()
+  // .not()
+  // .oneOf(["Passw0rd", "Password123"]); // Не должна быть одной из этих популярных комбинаций
 
   const handleSignUp = async () => {
-    await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        emailRedirectTo: `${location.origin}/admin/auth/callback`,
-      },
-    });
-    location.reload();
+    const isValidPassword = schema.validate(password);
+
+    if (!isValidPassword) {
+      setPasswordError(
+        "Пароль не соответствует требованиям - нужно от 6 до 15 символов"
+      );
+      return;
+    }
+
+    try {
+      await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          emailRedirectTo: `${location.origin}/admin/auth/callback`,
+        },
+      });
+      router.push("/admin");
+    } catch (error) {
+      console.error("Произошла ошибка при регистрации пользователя:", error);
+      alert("Произошла ошибка при регистрации пользователя");
+    }
   };
 
   return (
@@ -100,30 +111,15 @@ export default function LogIn() {
                   placeholder="••••••••"
                   required
                   type="password"
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                    setPasswordError(""); // Сброс ошибки при изменении пароля
+                  }}
                   value={password}
                 />
-              </div>
-              <div className="flex items-center justify-between">
-                <div className="flex items-start">
-                  {/* <div className="flex h-5 items-center">
-                      <Checkbox id="remember" required />
-                    </div> */}
-                  {/* <div className="ml-3 text-sm">
-                      <Label
-                        htmlFor="remember"
-                        className="text-gray-500 dark:text-gray-300"
-                      >
-                        Запомнить меня
-                      </Label>
-                    </div> */}
-                </div>
-                {/* <a
-                    href="#"
-                    className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
-                  >
-                    Забыли пароль?
-                  </a> */}
+                {passwordError && (
+                  <p className="text-red-500 text-xs mt-1">{passwordError}</p>
+                )}
               </div>
               <Button className="w-full" onClick={handleSignUp}>
                 Зарегистрироваться
