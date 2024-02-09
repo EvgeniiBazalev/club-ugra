@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { Button, Card, Checkbox, Label, TextInput } from "flowbite-react";
+import { Button, Card, Label, TextInput } from "flowbite-react";
 
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
@@ -102,19 +102,6 @@ export default function SignIn() {
                 />
               </div>
               <div className="flex items-center justify-between">
-                <div className="flex items-start">
-                  {/* <div className="flex h-5 items-center">
-                      <Checkbox id="remember" required />
-                    </div> */}
-                  {/* <div className="ml-3 text-sm">
-                      <Label
-                        htmlFor="remember"
-                        className="text-gray-500 dark:text-gray-300"
-                      >
-                        Запомнить меня
-                      </Label>
-                    </div> */}
-                </div>
                 <a
                   href="/admin/resetPassword"
                   className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
