@@ -8,9 +8,9 @@ import { useEffect, useState } from "react";
 
 export default function ResetPassword() {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+
   const [user, setUser] = useState();
-  const [isDataReceived, setIsDataReceived] = useState(false); // Состояние флага получения данных
+
   const router = useRouter();
   const supabase = createClientComponentClient();
 
@@ -43,12 +43,22 @@ export default function ResetPassword() {
     getData(); // Вызов функции получения данных
   }, [supabase.auth, router]);
 
-  const handleSignIn = async () => {
-    await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-    location.reload();
+  const handleResetPasswordForEmail = async () => {
+    try {
+      const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: `${location.origin}/admin/newPassword`,
+      });
+      if (data) {
+        alert("Проверьте свою электронную почту");
+      }
+      if (error) {
+        console.log(error);
+        alert("Произошла ошибка");
+      }
+    } catch (error) {
+      console.log(error);
+      alert("Произошла ошибка");
+    }
   };
 
   return (
@@ -70,7 +80,7 @@ export default function ResetPassword() {
         <div className="w-full rounded-lg bg-white shadow dark:border dark:border-gray-700 dark:bg-gray-800 sm:max-w-md md:mt-0 xl:p-0">
           <Card className="shadow-none">
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white md:text-2xl">
-              Войдите в Ваш аккаунт
+              Восстановление пароля
             </h1>
             <form className="space-y-4 md:space-y-6" action="#">
               <div>
@@ -86,45 +96,9 @@ export default function ResetPassword() {
                   value={email}
                 />
               </div>
-              <div>
-                <Label
-                  htmlFor="password"
-                  className="mb-2 block dark:text-white"
-                >
-                  Пароль
-                </Label>
-                <TextInput
-                  id="password"
-                  placeholder="••••••••"
-                  required
-                  type="password"
-                  onChange={(e) => setPassword(e.target.value)}
-                  value={password}
-                />
-              </div>
-              <div className="flex items-center justify-between">
-                <div className="flex items-start">
-                  {/* <div className="flex h-5 items-center">
-                      <Checkbox id="remember" required />
-                    </div> */}
-                  {/* <div className="ml-3 text-sm">
-                      <Label
-                        htmlFor="remember"
-                        className="text-gray-500 dark:text-gray-300"
-                      >
-                        Запомнить меня
-                      </Label>
-                    </div> */}
-                </div>
-                {/* <a
-                    href="#"
-                    className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
-                  >
-                    Забыли пароль?
-                  </a> */}
-              </div>
-              <Button className="w-full" onClick={handleSignIn}>
-                Войти
+
+              <Button className="w-full" onClick={handleResetPasswordForEmail}>
+                Восстановить пароль
               </Button>
               <p className="text-sm font-medium text-gray-900 dark:text-white">
                 У Вас нет аккаунта?&nbsp;

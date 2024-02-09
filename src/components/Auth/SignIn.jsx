@@ -30,7 +30,6 @@ export default function SignIn() {
         if (data) {
           setUser(data.user);
           router.push("/admin");
-          // Устанавливаем флаг в true после получения данных
         }
       } catch (error) {
         console.error(
@@ -116,12 +115,12 @@ export default function SignIn() {
                       </Label>
                     </div> */}
                 </div>
-                {/* <a
-                    href="#"
-                    className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
-                  >
-                    Забыли пароль?
-                  </a> */}
+                <a
+                  href="/admin/resetPassword"
+                  className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
+                >
+                  Забыли пароль?
+                </a>
               </div>
               <Button className="w-full" onClick={handleSignIn}>
                 Войти

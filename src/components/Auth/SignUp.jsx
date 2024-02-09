@@ -30,7 +30,6 @@ export default function LogIn() {
         if (data) {
           setUser(data.user);
           router.push("/admin");
-          // Устанавливаем флаг в true после получения данных
         }
       } catch (error) {
         console.error(
