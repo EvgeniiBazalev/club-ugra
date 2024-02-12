@@ -7,11 +7,10 @@ const Dashboard = () => {
       <div className="mx-auto max-w-screen-xl px-4 py-8 sm:py-16 lg:px-6 lg:py-24">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-            Designed for business teams like yours
+            Панель управления администратора
           </h2>
           <p className="mt-4 text-base font-normal text-gray-500 dark:text-gray-400 sm:text-xl">
-            Here we focus on markets where technology, innovation, and capital
-            can unlock long-term value and drive economic growth.
+            Если Вы оказались на этой странице случайно, просто покиньте ее.
           </p>
         </div>
         <div className="mt-8 rounded-lg bg-gray-50 p-4 dark:bg-gray-800 sm:p-12 lg:mt-16">
@@ -39,15 +38,16 @@ const Dashboard = () => {
                   />
                 </svg>
               </div>
-              <div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white sm:text-2xl">
-                  Automatic categorization
-                </h3>
-                <p className="mt-2 text-base font-normal text-gray-500 dark:text-gray-400 sm:text-lg">
-                  Flow Budget automatically categorizes your income and
-                  expenses, making it easy to track where your money is going.
-                </p>
-              </div>
+              <a href="/admin/addStudents">
+                <div className="hover:bg-slate-200">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white sm:text-2xl">
+                    Списки учеников
+                  </h3>
+                  <p className="mt-2 text-base font-normal text-gray-500 dark:text-gray-400 sm:text-lg">
+                    Страница управления данными посетителей клуба.
+                  </p>
+                </div>
+              </a>
             </div>
             <div className="flex flex-col items-start gap-4 sm:flex-row sm:gap-5">
               <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-700 lg:h-24 lg:w-24">
@@ -67,16 +67,17 @@ const Dashboard = () => {
                   />
                 </svg>
               </div>
-              <div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white sm:text-2xl">
-                  Budgeting methods
-                </h3>
-                <p className="mt-2 text-base font-normal text-gray-500 dark:text-gray-400 sm:text-lg">
-                  The app offers a variety of budgeting methods, such as
-                  50/30/20 rule, to help users find the approach that works best
-                  for them.
-                </p>
-              </div>
+              <a href="/admin/addTraining">
+                <div className="hover:bg-slate-200">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white sm:text-2xl">
+                    Посещаемость тренировок
+                  </h3>
+                  <p className="mt-2 text-base font-normal text-gray-500 dark:text-gray-400 sm:text-lg">
+                    Внесите данные по Вашей тренировки (отметьте посетивших
+                    учеников).
+                  </p>
+                </div>
+              </a>
             </div>
             <div className="flex flex-col items-start gap-4 sm:flex-row sm:gap-5">
               <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-700 lg:h-24 lg:w-24">
@@ -96,17 +97,18 @@ const Dashboard = () => {
                   />
                 </svg>
               </div>
-              <div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white sm:text-2xl">
-                  Budget goals
-                </h3>
-                <p className="mt-2 text-base font-normal text-gray-500 dark:text-gray-400 sm:text-lg">
-                  Set budget goals for each category and get real-time updates
-                  on how close you are to reaching them.
-                </p>
-              </div>
+              <a href="/admin/stats">
+                <div className="hover:bg-slate-200">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white sm:text-2xl">
+                    Статистика
+                  </h3>
+                  <p className="mt-2 text-base font-normal text-gray-500 dark:text-gray-400 sm:text-lg">
+                    Посмотрите статистику на основе Ваших отметок.
+                  </p>
+                </div>
+              </a>
             </div>
-            <div className="flex flex-col items-start gap-4 sm:flex-row sm:gap-5">
+            {/* <div className="flex flex-col items-start gap-4 sm:flex-row sm:gap-5">
               <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-700 lg:h-24 lg:w-24">
                 <svg
                   aria-hidden="true"
@@ -134,8 +136,8 @@ const Dashboard = () => {
                   financial decisions.
                 </p>
               </div>
-            </div>
-            <div className="flex flex-col items-start gap-4 sm:flex-row sm:gap-5">
+            </div> */}
+            {/* <div className="flex flex-col items-start gap-4 sm:flex-row sm:gap-5">
               <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-700 lg:h-24 lg:w-24">
                 <svg
                   aria-hidden="true"
@@ -192,10 +194,10 @@ const Dashboard = () => {
                   again.
                 </p>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
-        <div className="mt-8 flex justify-center text-center lg:mt-16">
+        {/* <div className="mt-8 flex justify-center text-center lg:mt-16">
           <Button color="info" href="#" className="w-fit">
             Get a demo
             <svg
@@ -212,7 +214,7 @@ const Dashboard = () => {
               />
             </svg>
           </Button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -293,7 +293,7 @@ export default function SidebarLayouts({ children }) {
                 <li className="-mx-6 mt-auto">
                   {user ? (
                     <pre className="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-white hover:bg-indigo-700">
-                      {user.email}
+                      <a href="/admin">{user.email}</a>
                     </pre>
                   ) : null}
                   <a
