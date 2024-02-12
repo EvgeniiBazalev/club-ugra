@@ -1,6 +1,14 @@
 import React from "react";
+import deleteDataForStudents from "@/supabase/deleteDataForStudents";
 
 const StudentsList = (props) => {
+  const deleteData = async (e, id) => {
+    e.preventDefault();
+    await deleteDataForStudents(id);
+
+    props.handleDeleteStudent(id);
+    alert("Ученик успешно удален");
+  };
   return (
     <div className="px-4 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center">
@@ -91,6 +99,7 @@ const StudentsList = (props) => {
                       <a
                         href="#"
                         className="text-indigo-600 hover:text-indigo-900"
+                        onClick={(e) => deleteData(e, person.id)}
                       >
                         Delite
                         <span className="sr-only">, {person.lastName}</span>
