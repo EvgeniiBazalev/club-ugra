@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import getUser from "@/supabase/getUser";
+import insertDataForStudents from "@/supabase/insertDataForStudents";
 
 export default function FormAddStudents(props) {
   const [enableButton, setEnableButton] = useState(false);
@@ -34,13 +35,14 @@ export default function FormAddStudents(props) {
     fetchAndSetUserData(); // Вызываем функцию загрузки данных
   }, []);
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     setEnableButton(false);
 
     setStudent({ ...student, id: ++student.id });
     console.log(student);
     props.handleAddStudent(student);
+    await insertDataForStudents(student);
     setEnableButton(true);
   }
 
