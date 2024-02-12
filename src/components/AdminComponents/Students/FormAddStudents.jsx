@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import getUser from "@/supabase/getUser";
 
 export default function FormAddStudents(props) {
+  const [enableButton, setEnableButton] = useState(false);
   const [student, setStudent] = useState({
     id: 0,
     firstName: "Вася",
@@ -23,6 +24,7 @@ export default function FormAddStudents(props) {
         const user = await getUser();
         if (user) {
           setStudent({ ...student, trainer: user.email });
+          setEnableButton(true);
         }
       } catch (error) {
         console.error("Error fetching user data:", error);
@@ -34,10 +36,12 @@ export default function FormAddStudents(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(trainer);
+    setEnableButton(false);
+
     setStudent({ ...student, id: ++student.id });
     console.log(student);
     props.handleAddStudent(student);
+    setEnableButton(true);
   }
 
   return (
@@ -243,6 +247,7 @@ export default function FormAddStudents(props) {
               onClick={(event) => {
                 handleSubmit(event);
               }}
+              disabled={!enableButton}
               type="submit"
               className="inline-flex justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
