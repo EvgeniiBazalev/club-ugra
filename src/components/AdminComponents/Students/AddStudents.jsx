@@ -30,10 +30,28 @@ export default function AddStudents() {
     });
   }
 
+  function handleUpdateStudent(student) {
+    dispatch({
+      type: "updateStudent",
+      student,
+    });
+  }
+
+  function handleDeleteStudent(id) {
+    dispatch({
+      type: "deleteStudent",
+      id,
+    });
+  }
+
   return (
     <>
       <FormAddStudents handleAddStudent={handleAddStudent} />
-      <StudentsList students={studentsArrow} />
+      <StudentsList
+        students={studentsArrow}
+        handleUpdateStudent={handleUpdateStudent}
+        handleDeleteStudent={handleDeleteStudent}
+      />
     </>
   );
 }
@@ -46,8 +64,22 @@ function reducer(studentsArrow, action) {
     case "fetchStudent": {
       return action.data;
     }
+    case "updateStudent": {
+      return studentsArrow.map((student) => {
+        if (student.id === action.student.id) {
+          return action.student;
+        }
+        return student;
+      });
+    }
+    case "deleteStudent": {
+      return studentsArrow.filter((student) => student.id !== action.id);
+    }
+
+    default: {
+      throw Error("Unknown action: " + action.type);
+    }
   }
-  throw Error("Unknown action: " + action.type);
 }
 
 const initialArg = [
