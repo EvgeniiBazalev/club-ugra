@@ -1,16 +1,32 @@
 "use client";
 
-import { useReducer, useState } from "react";
+import { useReducer, useEffect } from "react";
 import StudentsList from "./StudentsList";
 import FormAddStudents from "./FormAddStudents";
+import fetchDataForStudents from "@/supabase/fetchDataForStudents";
 
 export default function AddStudents() {
   const [studentsArrow, dispatch] = useReducer(reducer, initialArg);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await fetchDataForStudents();
+      if (!data) return;
+      handleFetchStudent(data);
+    };
+    fetchData();
+  }, []);
   function handleAddStudent(student) {
     dispatch({
       type: "addNewStudent",
       student,
+    });
+  }
+
+  function handleFetchStudent(data) {
+    dispatch({
+      type: "fetchStudent",
+      data,
     });
   }
 
@@ -27,10 +43,8 @@ function reducer(studentsArrow, action) {
     case "addNewStudent": {
       return [...studentsArrow, action.student];
     }
-    case "changedStudent": {
-      return {
-        studentsArrow,
-      };
+    case "fetchStudent": {
+      return action.data;
     }
   }
   throw Error("Unknown action: " + action.type);
