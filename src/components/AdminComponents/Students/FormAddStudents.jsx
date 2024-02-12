@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import getUser from "@/supabase/getUser";
 
 export default function FormAddStudents(props) {
   const [student, setStudent] = useState({
@@ -13,8 +14,31 @@ export default function FormAddStudents(props) {
     phone: "+7 999 999 99 99",
     gender: "Мужской",
     streetAddress: "ул. Пушкина",
-    trainer: "Тренер",
+    trainer: "Тренер неопознан",
   });
+
+  useEffect(() => {
+    const fetchAndSetUserData = async () => {
+      try {
+        const user = await getUser();
+        if (user) {
+          setStudent({ ...student, trainer: user.email });
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    fetchAndSetUserData(); // Вызываем функцию загрузки данных
+  }, []);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log(trainer);
+    setStudent({ ...student, id: ++student.id });
+    console.log(student);
+    props.handleAddStudent(student);
+  }
 
   return (
     <>
@@ -217,7 +241,7 @@ export default function FormAddStudents(props) {
             </button>
             <button
               onClick={(event) => {
-                props.handleAddStudent(event, student);
+                handleSubmit(event);
               }}
               type="submit"
               className="inline-flex justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"

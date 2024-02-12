@@ -60,7 +60,7 @@ const StudentsList = (props) => {
               </thead>
               <tbody className="divide-y divide-gray-200">
                 {props.students.map((person) => (
-                  <tr key={person.email}>
+                  <tr key={person.id}>
                     <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
                       {`${person.lastName} ${person.firstName} ${person.patronymic}`}
                     </td>

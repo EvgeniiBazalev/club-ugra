@@ -7,14 +7,10 @@ import FormAddStudents from "./FormAddStudents";
 export default function AddStudents() {
   const [studentsArrow, dispatch] = useReducer(reducer, initialArg);
 
-  function handleAddStudent(event, student) {
-    event.preventDefault(); // Предотвращаем стандартное поведение отправки формы
+  function handleAddStudent(student) {
     dispatch({
       type: "addNewStudent",
-      student: {
-        ...student,
-        id: studentsArrow.length, // Создаем новый идентификатор для нового студента
-      },
+      student,
     });
   }
 
