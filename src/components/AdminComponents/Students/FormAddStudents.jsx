@@ -39,7 +39,7 @@ export default function FormAddStudents(props) {
     e.preventDefault();
     setEnableButton(false);
 
-    setStudent({ ...student, id: ++student.id });
+    setStudent({ ...student, id: props.studentsArrow.length + 1 });
     console.log(student);
     props.handleAddStudent(student);
     await insertDataForStudents(student);

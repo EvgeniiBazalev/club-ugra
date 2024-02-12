@@ -46,7 +46,10 @@ export default function AddStudents() {
 
   return (
     <>
-      <FormAddStudents handleAddStudent={handleAddStudent} />
+      <FormAddStudents
+        handleAddStudent={handleAddStudent}
+        studentsArrow={studentsArrow}
+      />
       <StudentsList
         students={studentsArrow}
         handleUpdateStudent={handleUpdateStudent}
