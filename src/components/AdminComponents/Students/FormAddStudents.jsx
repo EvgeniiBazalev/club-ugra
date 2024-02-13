@@ -3,11 +3,13 @@
 import { useEffect, useState } from "react";
 import getUser from "@/supabase/getUser";
 import insertDataForStudents from "@/supabase/insertDataForStudents";
+import getUniqueID from "@/support/getUniqueID";
 
 export default function FormAddStudents(props) {
   const [enableButton, setEnableButton] = useState(false);
+  let startID = getUniqueID();
   const [student, setStudent] = useState({
-    id: 0,
+    id: startID,
     firstName: "Вася",
     patronymic: "Петрович",
     lastName: "Иванов",
@@ -39,7 +41,7 @@ export default function FormAddStudents(props) {
     e.preventDefault();
     setEnableButton(false);
 
-    setStudent({ ...student, id: props.studentsArrow.length + 1 });
+    setStudent({ ...student, id: getUniqueID() });
     console.log(student);
     props.handleAddStudent(student);
     await insertDataForStudents(student);
