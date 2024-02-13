@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import deleteDataForStudents from "@/supabase/deleteDataForStudents";
+import getUser from "@/supabase/getUser";
 
 const StudentsList = (props) => {
+  const [user, setUser] = useState(null);
+
   const deleteData = async (e, id) => {
     e.preventDefault();
     await deleteDataForStudents(id);
@@ -9,6 +12,22 @@ const StudentsList = (props) => {
     props.handleDeleteStudent(id);
     alert("Ученик успешно удален");
   };
+
+  useEffect(() => {
+    const fetchAndSetUserData = async () => {
+      try {
+        const userData = await getUser();
+        if (userData) {
+          setUser(userData);
+        }
+        console.log(userData);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+    fetchAndSetUserData();
+  }, []);
+
   return (
     <div className="px-4 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center">
@@ -67,27 +86,30 @@ const StudentsList = (props) => {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
-                {props.students.map((person) => (
-                  <tr key={person.id}>
-                    <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
-                      {`${person.lastName} ${person.firstName} ${person.patronymic}`}
-                    </td>
-                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                      {person.birthday}
-                    </td>
-                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                      {person.email}
-                    </td>
-                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                      {person.phone}
-                    </td>
-                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                      {person.gender}
-                    </td>
-                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                      {person.streetAddress}
-                    </td>
-                    {/* <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
+                {props.students.map((person) => {
+                  if (user) {
+                    if (person.trainer === user.email)
+                      return (
+                        <tr key={person.id}>
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
+                            {`${person.lastName} ${person.firstName} ${person.patronymic}`}
+                          </td>
+                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                            {person.birthday}
+                          </td>
+                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                            {person.email}
+                          </td>
+                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                            {person.phone}
+                          </td>
+                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                            {person.gender}
+                          </td>
+                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                            {person.streetAddress}
+                          </td>
+                          {/* <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
                       <a
                         href="#"
                         className="text-indigo-600 hover:text-indigo-900"
@@ -95,18 +117,22 @@ const StudentsList = (props) => {
                         Edit<span className="sr-only">, {person.lastName}</span>
                       </a>
                     </td> */}
-                    <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
-                      <a
-                        href="#"
-                        className="text-indigo-600 hover:text-indigo-900"
-                        onClick={(e) => deleteData(e, person.id)}
-                      >
-                        Delite
-                        <span className="sr-only">, {person.lastName}</span>
-                      </a>
-                    </td>
-                  </tr>
-                ))}
+                          <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
+                            <a
+                              href="#"
+                              className="text-indigo-600 hover:text-indigo-900"
+                              onClick={(e) => deleteData(e, person.id)}
+                            >
+                              Delite
+                              <span className="sr-only">
+                                , {person.lastName}
+                              </span>
+                            </a>
+                          </td>
+                        </tr>
+                      );
+                  }
+                })}
               </tbody>
             </table>
           </div>

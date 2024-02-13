@@ -49,7 +49,13 @@ export default function FormAddStudents(props) {
   return (
     <>
       <form>
-        <div className="space-y-12 sm:space-y-16">
+        <div className="space-y-6 sm:space-y-8">
+          <a
+            className="inline-flex justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            href="/admin"
+          >
+            Панель управления
+          </a>
           <div>
             <h2 className="text-base font-semibold leading-7 text-gray-900">
               Персональные данные
@@ -57,8 +63,8 @@ export default function FormAddStudents(props) {
             <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-600">
               Заполните данные ученика для внесения его в список.
             </p>
-            <div className="mt-10 space-y-8 border-b border-gray-900/10 pb-12 sm:space-y-0 sm:divide-y sm:divide-gray-900/10 sm:border-t sm:pb-0">
-              <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-6">
+            <div className="mt-4 space-y-4 border-b border-gray-900/10 pb-12 sm:space-y-0 sm:divide-y sm:divide-gray-900/10 sm:border-t sm:pb-0">
+              <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-3">
                 <label
                   htmlFor="first-name"
                   className="block text-sm font-medium leading-6 text-gray-900 sm:pt-1.5"
@@ -80,7 +86,7 @@ export default function FormAddStudents(props) {
                 </div>
               </div>
 
-              <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-6">
+              <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-3">
                 <label
                   htmlFor="patronymic"
                   className="block text-sm font-medium leading-6 text-gray-900 sm:pt-1.5"
@@ -102,7 +108,7 @@ export default function FormAddStudents(props) {
                 </div>
               </div>
 
-              <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-6">
+              <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-3">
                 <label
                   htmlFor="last-name"
                   className="block text-sm font-medium leading-6 text-gray-900 sm:pt-1.5"
@@ -124,7 +130,7 @@ export default function FormAddStudents(props) {
                 </div>
               </div>
 
-              <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-6">
+              <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-3">
                 <label
                   htmlFor="birthdate"
                   className="block text-sm font-medium leading-6 text-gray-900 sm:pt-1.5"
@@ -146,7 +152,7 @@ export default function FormAddStudents(props) {
                 </div>
               </div>
 
-              <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-6">
+              <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-3">
                 <label
                   htmlFor="email"
                   className="block text-sm font-medium leading-6 text-gray-900 sm:pt-1.5"
@@ -168,7 +174,7 @@ export default function FormAddStudents(props) {
                 </div>
               </div>
 
-              <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-6">
+              <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-3">
                 <label
                   htmlFor="phone"
                   className="block text-sm font-medium leading-6 text-gray-900 sm:pt-1.5"
@@ -190,7 +196,7 @@ export default function FormAddStudents(props) {
                 </div>
               </div>
 
-              <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-6">
+              <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-3">
                 <label
                   htmlFor="gender"
                   className="block text-sm font-medium leading-6 text-gray-900 sm:pt-1.5"
@@ -214,7 +220,7 @@ export default function FormAddStudents(props) {
                 </div>
               </div>
 
-              <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-6">
+              <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-3">
                 <label
                   htmlFor="street-address"
                   className="block text-sm font-medium leading-6 text-gray-900 sm:pt-1.5"

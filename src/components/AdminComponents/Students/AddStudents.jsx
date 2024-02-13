@@ -88,14 +88,14 @@ function reducer(studentsArrow, action) {
 const initialArg = [
   {
     id: 0,
-    firstName: "Вася",
-    patronymic: "Петрович",
-    lastName: "Иванов",
-    birthday: "01.01.2000",
-    email: "a@a.ru",
-    phone: "+7 999 999 99 99",
-    gender: "Мужской",
-    streetAddress: "ул. Пушкина",
-    trainer: "Тренер",
+    firstName: "",
+    patronymic: "",
+    lastName: "",
+    birthday: "",
+    email: "",
+    phone: "",
+    gender: "",
+    streetAddress: "",
+    trainer: "",
   },
 ];
