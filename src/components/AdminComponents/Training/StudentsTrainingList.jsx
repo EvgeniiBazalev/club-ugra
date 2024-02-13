@@ -1,8 +1,7 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState, useReducer } from "react";
 import getUser from "@/supabase/getUser";
-import { useEffect, useState, useReducer } from "react";
 import fetchDataForStudents from "@/supabase/fetchDataForStudents";
 
 const StudentsTrainingList = () => {
@@ -12,7 +11,7 @@ const StudentsTrainingList = () => {
 
   const [user, setUser] = useState(null);
   const [data, setData] = useState(null);
-  const [trainingArrow, dispatch] = useReducer(reducer, {});
+  const [trainingArrow, dispatch] = useReducer(reducer, []);
 
   function reducer(trainingArrow, action) {
     switch (action.type) {
@@ -42,30 +41,27 @@ const StudentsTrainingList = () => {
     const fetchData = async () => {
       try {
         const userData = await getUser();
-        if (userData) {
-          setUser(userData);
-          const fetchedData = await fetchDataForStudents();
-          if (fetchedData) {
-            setData(fetchedData);
-            const newInitialData = fetchedData
-              .filter((student) => student.trainer === userData.email)
-              .map((student) => ({
-                studentIdPrimary: student.idPrimary,
-                checked: false,
-              }));
-            dispatch({
-              type: "createInitial",
-              data: newInitialData,
-            });
-          }
-        }
+        setUser(userData);
+        const fetchedData = await fetchDataForStudents();
+        const filteredData = fetchedData.filter(
+          (student) => student.trainer === userData.email
+        );
+        const newInitialData = filteredData.map((student) => ({
+          studentIdPrimary: student.idPrimary,
+          checked: false,
+        }));
+        console.log(filteredData);
+        setData(filteredData);
+        dispatch({ type: "createInitial", data: newInitialData });
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
 
-    fetchData();
-  }, []);
+    if (user === null) {
+      fetchData();
+    }
+  }, [user]);
 
   return (
     <div className="px-4 sm:px-6 lg:px-8">
@@ -92,29 +88,25 @@ const StudentsTrainingList = () => {
               </thead>
               <tbody className="divide-y divide-gray-200">
                 {data &&
-                  user &&
-                  data.map((person) => {
-                    if (person.trainer === user.email)
-                      return (
-                        <tr key={person.idPrimary}>
-                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
-                            {`${person.lastName} ${person.firstName} ${person.patronymic}`}
-                          </td>
-                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                            <input
-                              type="checkbox"
-                              value={false}
-                              onChange={() =>
-                                dispatch({
-                                  type: "changeChecked",
-                                  id: person.idPrimary,
-                                })
-                              }
-                            />
-                          </td>
-                        </tr>
-                      );
-                  })}
+                  data.map((person) => (
+                    <tr key={person.idPrimary}>
+                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
+                        {`${person.lastName} ${person.firstName} ${person.patronymic}`}
+                      </td>
+                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                        <input
+                          type="checkbox"
+                          value={false}
+                          onChange={() =>
+                            dispatch({
+                              type: "changeChecked",
+                              id: person.idPrimary,
+                            })
+                          }
+                        />
+                      </td>
+                    </tr>
+                  ))}
               </tbody>
             </table>
           </div>
