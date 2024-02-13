@@ -6,6 +6,10 @@ import { useEffect, useState, useReducer } from "react";
 import fetchDataForStudents from "@/supabase/fetchDataForStudents";
 
 const StudentsTrainingList = () => {
+  const consoleTraining = () => {
+    console.log(trainingArrow);
+  };
+
   const [user, setUser] = useState(null);
   const [data, setData] = useState(null);
   const [trainingArrow, dispatch] = useReducer(reducer, {});
@@ -14,7 +18,7 @@ const StudentsTrainingList = () => {
     switch (action.type) {
       case "changeChecked": {
         return trainingArrow.map((student) => {
-          if (student.idPrimary === action.idPrimary) {
+          if (student.studentIdPrimary === action.id) {
             return {
               ...student,
               checked: !student.checked,
@@ -35,40 +39,32 @@ const StudentsTrainingList = () => {
   }
 
   useEffect(() => {
-    const fetchAndSetUserData = async () => {
+    const fetchData = async () => {
       try {
         const userData = await getUser();
         if (userData) {
           setUser(userData);
+          const fetchedData = await fetchDataForStudents();
+          if (fetchedData) {
+            setData(fetchedData);
+            const newInitialData = fetchedData
+              .filter((student) => student.trainer === userData.email)
+              .map((student) => ({
+                studentIdPrimary: student.idPrimary,
+                checked: false,
+              }));
+            dispatch({
+              type: "createInitial",
+              data: newInitialData,
+            });
+          }
         }
-        console.log(userData);
       } catch (error) {
-        console.error("Error fetching user data:", error);
+        console.error("Error fetching data:", error);
       }
     };
-    fetchAndSetUserData();
 
-    const fetchData = async () => {
-      try {
-        const data = await fetchDataForStudents();
-        if (data) {
-          setData(data);
-          const newInitialData = data.map((student) => ({
-            id: student.idPrimary,
-            checked: false,
-          }));
-          dispatch({
-            type: "createInitial",
-            data: newInitialData,
-          });
-        }
-      } catch (error) {
-        console.error("Error fetching user data:", error);
-      }
-    };
     fetchData();
-    console.log(data);
-    console.log(user);
   }, []);
 
   return (
@@ -126,7 +122,7 @@ const StudentsTrainingList = () => {
       </div>
       <button
         className="inline-flex justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-        onClick={console.log(trainingArrow)}
+        onClick={consoleTraining}
       >
         Сохранить
       </button>
