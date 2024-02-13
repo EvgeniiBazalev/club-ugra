@@ -12,7 +12,6 @@ const page = () => {
         Панель управления
       </a>
       <SaveTraining />
-      <StudentsTrainingList />
     </>
   );
 };

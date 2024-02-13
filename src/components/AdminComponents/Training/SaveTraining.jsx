@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import StudentsTrainingList from "./StudentsTrainingList";
 
 const SaveTraining = () => {
   const [currentDate, setCurrentDate] = useState("");
@@ -71,12 +72,10 @@ const SaveTraining = () => {
           />
         </div>
       </div>
-      <button
-        className="inline-flex justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-        onClick={() => alert("Сохранено")}
-      >
-        Сохранить
-      </button>
+      <StudentsTrainingList
+        currentDate={currentDate}
+        currentTime={currentTime}
+      />
     </>
   );
 };

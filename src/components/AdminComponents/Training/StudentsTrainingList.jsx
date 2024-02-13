@@ -3,10 +3,22 @@
 import React, { useEffect, useState, useReducer } from "react";
 import getUser from "@/supabase/getUser";
 import fetchDataForStudents from "@/supabase/fetchDataForStudents";
+import insertDataForTraining from "@/supabase/insertDataForTraining";
 
-const StudentsTrainingList = () => {
-  const consoleTraining = () => {
-    console.log(trainingArrow);
+const StudentsTrainingList = (props) => {
+  const insertTraining = async () => {
+    try {
+      const data = {
+        time: props.currentTime,
+        date: props.currentDate,
+        trainer: user.email,
+        trainingArrow: JSON.stringify(trainingArrow),
+      };
+      await insertDataForTraining(data);
+      alert("Тренировка успешно добавлена");
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const [user, setUser] = useState(null);
@@ -50,7 +62,7 @@ const StudentsTrainingList = () => {
           studentIdPrimary: student.idPrimary,
           checked: false,
         }));
-        console.log(filteredData);
+        // console.log(filteredData);
         setData(filteredData);
         dispatch({ type: "createInitial", data: newInitialData });
       } catch (error) {
@@ -114,7 +126,7 @@ const StudentsTrainingList = () => {
       </div>
       <button
         className="inline-flex justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-        onClick={consoleTraining}
+        onClick={insertTraining}
       >
         Сохранить
       </button>
