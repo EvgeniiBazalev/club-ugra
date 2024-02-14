@@ -34,9 +34,16 @@ const TrainingStats = () => {
           <table className="min-w-full divide-y divide-gray-300">
             <thead>
               <tr>
+                <th
+                  key={0}
+                  scope="col"
+                  className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0"
+                >
+                  Фамилия имя отчество
+                </th>
                 {training.map((training) => (
                   <th
-                    key={training.id}
+                    key={training.created_at}
                     scope="col"
                     className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0"
                   >
@@ -46,12 +53,23 @@ const TrainingStats = () => {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
-              {training.map((person) => {
+              {data.map((person) => {
                 return (
-                  <tr key={person.id}>
-                    <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
+                  <tr key={person.idPrimary}>
+                    <td
+                      className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0"
+                      key={person.created_at}
+                    >
                       {`${person.lastName} ${person.firstName} ${person.patronymic}`}
                     </td>
+                    {training.map((training) => (
+                      <td
+                        key={training.idPrimary}
+                        className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0"
+                      >
+                        {training.time}
+                      </td>
+                    ))}
                   </tr>
                 );
               })}
