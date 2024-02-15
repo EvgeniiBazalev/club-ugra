@@ -53,6 +53,22 @@ const TrainingStats = () => {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
+              <tr>
+                <td
+                  key={0}
+                  scope="col"
+                  className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0"
+                ></td>
+                {training.map((training) => (
+                  <td
+                    key={training.created_at}
+                    scope="col"
+                    className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0"
+                  >
+                    {training.time}
+                  </td>
+                ))}
+              </tr>
               {data.map((person) => {
                 return (
                   <tr key={person.idPrimary}>
