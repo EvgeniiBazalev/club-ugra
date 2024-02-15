@@ -44,6 +44,9 @@ const TeamMain = () => {
                 </p>
                 <p className="mt-6 text-base leading-7 text-gray-600">
                   {person.bio}
+                  </p>
+                <p className="mt-6 text-base leading-7 text-gray-600">
+                  {person.titul}
                 </p>
                 <ul role="list" className="mt-6 flex gap-x-6">
                   <li>
