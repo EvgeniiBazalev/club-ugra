@@ -9,6 +9,8 @@ const TrainingStats = () => {
   const [data, setData] = useState();
   const [user, setUser] = useState();
   const [training, setTraining] = useState();
+  const [month, setMonth] = useState(new Date().toISOString().slice(0, 7));
+
   useEffect(() => {
     const fetchData = async () => {
       const userData = await getUser();
@@ -19,19 +21,41 @@ const TrainingStats = () => {
       );
       setData(filteredData);
       const trainingData = await getDataForTraining();
-      setTraining(trainingData);
 
-      console.log(trainingData);
-      console.log(filteredData);
-      console.log(userData);
+      setTraining(
+        trainingData.filter((item) => item.date.slice(0, 7) === month)
+      );
+
+      console.log(month);
     };
     fetchData();
-  }, []);
+  }, [month]);
+
+  const onChangeMonthHandler = (event) => {
+    setMonth(event.target.value);
+    setTraining(
+      training.filter((item) => item.date.slice(0, 7) === event.target.value)
+    );
+  };
+
   return (
     <>
+      <a
+        className="inline-flex justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        href="/admin"
+      >
+        Панель управления
+      </a>
+
+      <input
+        className="mt-6 block w-1/6 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+        type="month"
+        value={month}
+        onChange={(event) => setMonth(event.target.value)}
+      />
       {data && training && user && (
         <>
-          <table className="min-w-full divide-y divide-gray-300">
+          <table className="mt-3 min-w-full divide-y divide-gray-300">
             <thead>
               <tr>
                 <th
