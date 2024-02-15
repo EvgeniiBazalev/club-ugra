@@ -109,7 +109,7 @@ const TrainingStats = () => {
                       >
                         {JSON.parse(training.trainingArrow).find(
                           (arrow) => arrow.studentIdPrimary === person.idPrimary
-                        ).checked
+                        )?.checked
                           ? "✅"
                           : "❌"}
                       </td>
