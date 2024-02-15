@@ -35,7 +35,7 @@ export default function FormAddStudents(props) {
     };
 
     fetchAndSetUserData(); // Вызываем функцию загрузки данных
-  }, []);
+  }, [student]);
 
   async function handleSubmit(e) {
     e.preventDefault();

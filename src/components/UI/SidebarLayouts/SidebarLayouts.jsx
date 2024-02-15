@@ -90,7 +90,7 @@ export default function SidebarLayouts({ children }) {
       current: router === item.href,
     }));
     setTeams(updatedTeams);
-  }, [router]);
+  }, [router, navigation, teams]);
 
   return (
     <>

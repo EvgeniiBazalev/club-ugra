@@ -14,7 +14,7 @@ export default function Page() {
     };
 
     getData();
-  }, []);
+  }, [supabase.auth]);
 
   return (
     <>
