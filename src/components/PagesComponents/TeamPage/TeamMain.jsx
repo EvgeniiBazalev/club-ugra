@@ -4,7 +4,7 @@ import Image from "next/image";
 const TeamMain = () => {
   return (
     <div className="bg-white py-24 md:py-32">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-5">
+      <div className="mx-auto grid max-w-9xl grid-cols-1 gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-7">
         <div className="max-w-2xl xl:col-span-2">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             О наших тренерах
@@ -21,7 +21,7 @@ const TeamMain = () => {
         </div>
         <ul
           role="list"
-          className="-mt-12 space-y-12 divide-y divide-gray-200 xl:col-span-3"
+          className="-mt-12 space-y-12 divide-y divide-gray-200 xl:col-span-5"
         >
           {team.map((person) => (
             <li
@@ -29,7 +29,7 @@ const TeamMain = () => {
               className="flex flex-col gap-10 pt-12 sm:flex-row"
             >
               <Image
-                className="aspect-[4/5] w-56 flex-none rounded-2xl object-cover"
+                className="aspect-[4/5] w-96 flex-none rounded-2xl object-cover"
                 src={person.imageUrl}
                 alt=""
                 width={480}
@@ -44,7 +44,7 @@ const TeamMain = () => {
                 </p>
                 <p className="mt-6 text-base leading-7 text-gray-600">
                   {person.bio}
-                  </p>
+                </p>
                 <p className="mt-6 text-base leading-7 text-gray-600">
                   {person.titul}
                 </p>
