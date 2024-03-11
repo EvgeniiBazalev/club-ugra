@@ -135,6 +135,8 @@ const leftRightSchedule = (day) => {
               width={50}
               height={50}
             />
+
+            {/* fff */}
             <div>
               <p className="text-lg font-medium leading-tight text-gray-900 dark:text-white">
                 {trainerInfo.name}
