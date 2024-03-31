@@ -23,6 +23,22 @@ export const people = [
     InstagramUrl: "#",
     VKUrl: "#",
   },
+  {
+    name: "Андрей Акуленко",
+    role: "#",
+    imageUrl: "/chempions/doska/Андрей Акуленко.jpg",
+    bio: "Тренер клуба Югра",
+    InstagramUrl: "#",
+    VKUrl: "#",
+  },
+  {
+    name: "Михаил Игнатов",
+    role: "#",
+    imageUrl: "/chempions/doska/Михаил Игнатов.jpg",
+    bio: "Тренер клуба Югра",
+    InstagramUrl: "#",
+    VKUrl: "#",
+  },
   { 
     name: "Антип Бачурин",
     role: "#",
