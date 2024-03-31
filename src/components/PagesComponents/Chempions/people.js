@@ -191,9 +191,9 @@ export const people = [
     InstagramUrl: "#",
     VKUrl: "#",
   },{
-    name: "Эвелина",
+    name: "Эвелина Назмутдинова",
     role: "#",
-    imageUrl: "/chempions/doska/Эвелина.jpg",
+    imageUrl: "/chempions/doska/Эвелина Назмутдинова.jpg",
     bio: "Боец клуба Югра",
     InstagramUrl: "#",
     VKUrl: "#",
