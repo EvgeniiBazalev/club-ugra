@@ -173,7 +173,7 @@ const AboutMain = () => {
                       <dt className="text-base leading-7 text-gray-600">
                         {stat.label}
                       </dt>
-                      <dd className="text-5xl font-semibold tracking-tight text-gray-900">
+                      <dd className="text-4xl font-semibold tracking-tight text-gray-900">
                         {stat.value}
                       </dd>
                     </div>
@@ -202,8 +202,8 @@ const AboutMain = () => {
               Наши направления в единоборствах
             </h2>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              Нашими основными направлениями являются тайский бокс,кикбоксинг,бокс,
-              а также общая физическая подготовка.
+              Нашими основными направлениями являются тайский
+              бокс,кикбоксинг,бокс, а также общая физическая подготовка.
             </p>
           </div>
           <dl className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 text-base leading-7 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">
